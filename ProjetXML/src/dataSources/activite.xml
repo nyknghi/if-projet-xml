@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<lactivites xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../grammaire/activite.xsd">
-  <activite debut="17/07/11" fin="19/10/11" type="sport">
+<!DOCTYPE lutilisateurs SYSTEM "../grammaire/utilisateur.dtd" >
+<lactivites>
+  <activite id="1" debut="17/07/11" fin="19/10/11" type="sport">
     <ville>Paris</ville>
     <nom>Sky</nom>
     <commentaire>Bien amuse et eclate</commentaire>
     <note>3</note>
   </activite>
-  <activite debut="04/07/12" fin="03/09/12" type="musique">
+  <activite id="2" debut="04/07/12" fin="03/09/12" type="musique">
     <ville>Nice</ville>
     <nom>Festival</nom>
     <commentaire>Voici un commentaire 1</commentaire>

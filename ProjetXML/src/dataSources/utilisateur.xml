@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE lutilisateurs SYSTEM "../grammaire/utilisateur.dtd" >
 <lutilisateurs>
-  <utilisateur age="20" genre="homme">
+  <utilisateur id="1" age="20" genre="homme">
     <nom>Jean</nom>
     <coordonnee>
       <adresse>
@@ -13,7 +13,7 @@
     </coordonnee>
     <hobby>Sport</hobby>
   </utilisateur>
-  <utilisateur age="22" genre="femme">
+  <utilisateur id="2" age="22" genre="femme">
     <nom>Alice</nom>
     <coordonnee>
       <adresse>

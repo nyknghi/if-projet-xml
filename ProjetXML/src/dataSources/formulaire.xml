@@ -2,14 +2,14 @@
 <!DOCTYPE formulaire SYSTEM "../grammaire/formulaire.dtd" >
 <formulaire>
 	<action typeAction="inscrire">
-		<activite debut="17/07/11" fin="19/10/11" type="sport">
+		<activite id="1" debut="17/07/11" fin="19/10/11" type="sport">
 			<ville>Paris</ville>
 			<nom>Sky</nom>
 			<commentaire>Bien amuse et eclate</commentaire>
 			<note>3</note>
 		</activite>
 	</action>
-	<utilisateur age="20" genre="homme">
+	<utilisateur id="1" age="20" genre="homme">
 		<nom>Jean</nom>
 		<coordonnee>
 			<adresse>

@@ -16,6 +16,7 @@
 				<xsd:element ref="commentaire" minOccurs="0" maxOccurs="50"/>
 				<xsd:element ref="note" minOccurs="1" maxOccurs="1"/>
 			</xsd:sequence>
+			<xsd:attribute name="id" use="required"/>
 			<xsd:attribute name="debut" use="required"/>
 			<xsd:attribute name="fin" use="optional"/>
 			<xsd:attribute name="type" use="required"/>

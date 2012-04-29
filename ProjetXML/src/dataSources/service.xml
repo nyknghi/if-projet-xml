@@ -2,7 +2,7 @@
 <!DOCTYPE service SYSTEM "../grammaire/service.dtd" >
 <service>
 	<participation>
-		<utilisateur age="20" genre="homme">
+		<utilisateur id="1" age="20" genre="homme">
 			<nom>Jean</nom>
 			<coordonnee>
 				<adresse>
@@ -14,13 +14,13 @@
 			</coordonnee>
 			<hobby>Sport</hobby>
 		</utilisateur>
-		<activite debut="17/07/11" fin="19/10/11" type="sport">
+		<activite id="1" debut="17/07/11" fin="19/10/11" type="sport">
 			<ville>Paris</ville>
 			<nom>Sky</nom>
 			<commentaire>Bien amuse et eclate</commentaire>
 			<note>3</note>
 		</activite>
-		<activite debut="27/07/11" fin="19/10/11" type="musique">
+		<activite id="2" debut="27/07/11" fin="19/10/11" type="musique">
 			<ville>Nice</ville>
 			<nom>Festival</nom>
 			<commentaire>Ennuyeux</commentaire>

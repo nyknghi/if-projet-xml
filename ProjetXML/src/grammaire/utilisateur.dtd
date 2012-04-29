@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!ELEMENT lutilisateurs (utilisateur*)>
 <!ELEMENT utilisateur (nom, coordonnee, hobby*, commentaire*)>
-<!ATTLIST utilisateur age CDATA #IMPLIED
+<!ATTLIST utilisateur id CDATA #REQUIRED 
+					age CDATA #IMPLIED
 					genre (homme | femme) #IMPLIED>
 <!ELEMENT nom (#PCDATA)>
 <!ELEMENT coordonnee (adresse+, mail?, telephone*)>

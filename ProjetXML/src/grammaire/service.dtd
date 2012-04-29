@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!ENTITY % activite SYSTEM "activite.dtd">
+<!ENTITY % utilisateur SYSTEM "utilisateur.dtd">
+
+%activite;
+%utilisateur;
+
 <!ELEMENT service (participation)*>
 <!ELEMENT participation (utilisateur, activite*)>
-<!ELEMENT utilisateur EMPTY>
-<!ATTLIST utilisateur id CDATA #REQUIRED>
-<!ELEMENT activite EMPTY>
-<!ATTLIST activite id CDATA #REQUIRED>
+

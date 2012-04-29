@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE lutilisateurs SYSTEM "../grammaire/utilisateur.dtd" >
+<lutilisateurs>
+  <utilisateur age="20" genre="homme">
+    <nom>Jean</nom>
+    <coordonnee>
+      <adresse>
+        <rue>11 Rue Jacquemont</rue>
+        <code>75017</code>
+        <ville>Paris</ville>
+      </adresse>
+    </coordonnee>
+    <hobby>Sport</hobby>
+  </utilisateur>
+  <utilisateur age="22" genre="femme">
+    <nom>Alice</nom>
+    <coordonnee>
+      <adresse>
+        <rue>2 bis Rue Washington</rue>
+        <code>75008</code>
+        <ville>Paris</ville>
+      </adresse>
+    </coordonnee>
+    <hobby>Musique</hobby>
+  </utilisateur>
+</lutilisateurs>

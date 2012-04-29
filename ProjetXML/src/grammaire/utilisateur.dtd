@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT lutilisateurs (utilisateur*)>
+<!ELEMENT utilisateur (nom, coordonnee, hobby*)>
+<!ATTLIST utilisateur age CDATA #IMPLIED
+					genre (homme | femme) #IMPLIED>
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT coordonnee (adresse+, mail?, telephone*)>
+<!ELEMENT adresse (numero?, (rue | avenue), code, ville, departement?)>
+<!ELEMENT numero (#PCDATA)>
+<!ELEMENT rue (#PCDATA)>
+<!ELEMENT avenue (#PCDATA)>
+<!ELEMENT code (#PCDATA)>
+<!ELEMENT ville (#PCDATA)>
+<!ELEMENT departement (#PCDATA)>
+<!ELEMENT mail (#PCDATA)>
+<!ELEMENT telephone (#PCDATA)>
+<!ELEMENT hobby (#PCDATA)>

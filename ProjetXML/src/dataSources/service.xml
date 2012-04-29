@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service SYSTEM "../grammaire/service.dtd" >
+<service>
+	<participation>
+		<utilisateur age="20" genre="homme">
+			<nom>Jean</nom>
+			<coordonnee>
+				<adresse>
+					<rue>11 Rue Jacquemont</rue>
+					<code>75017</code>
+					<ville>Paris</ville>
+				</adresse>
+			</coordonnee>
+			<hobby>Sport</hobby>
+		</utilisateur>
+		<activite debut="17/07/11" fin="19/10/11" type="sport">
+			<ville>Paris</ville>
+			<nom>Sky</nom>
+			<commentaire>Bien amuse et eclate</commentaire>
+			<note>3</note>
+		</activite>
+	</participation>
+</service>

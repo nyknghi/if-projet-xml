@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ENTITY % activite SYSTEM "activite.dtd">
+<!ENTITY % utilisateur SYSTEM "utilisateur.dtd">
+%activite;
+%utilisateur;
+
+<!ELEMENT formulaire (action, utilisateur)>
+<!ELEMENT action (activite, commentaire*, note?)>
+<!ATTLIST action typeAction (inscrire | desinscrire | rechercher | commenter | noter) "inscrire">

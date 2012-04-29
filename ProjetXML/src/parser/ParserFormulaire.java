@@ -78,7 +78,10 @@ public class ParserFormulaire extends DefaultHandler{
 		if (parent.equals("activite") && courant.equals("nom")){
 			activite.setNom(s);
 		}
-		if (courant.equals("commentaire")){	activite.addCommentaire(s);	}
+		if (courant.equals("commentaire")){	
+			activite.addCommentaire(s);
+			utilisateur.addCommentaire(s);
+		}
 		if (courant.equals("note")){ activite.addNote(Integer.parseInt(s));}
 		
 		if (parent.equals("utilisateur") && courant.equals("nom")){

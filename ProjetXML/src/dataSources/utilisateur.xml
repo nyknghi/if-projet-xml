@@ -5,7 +5,8 @@
     <nom>Jean</nom>
     <coordonnee>
       <adresse>
-        <rue>11 Rue Jacquemont</rue>
+      	<numero>11</numero>
+        <rue>Jacquemont</rue>
         <code>75017</code>
         <ville>Paris</ville>
       </adresse>
@@ -16,7 +17,8 @@
     <nom>Alice</nom>
     <coordonnee>
       <adresse>
-        <rue>2 bis Rue Washington</rue>
+      	<numero>2</numero>
+        <avenue>Clichy</avenue>
         <code>75008</code>
         <ville>Paris</ville>
       </adresse>

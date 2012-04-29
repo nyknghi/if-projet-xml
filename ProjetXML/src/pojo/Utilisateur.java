@@ -5,10 +5,11 @@ import java.util.List;
 
 public class Utilisateur {
 	private String nom;
-	private Coordonnee coordonnee;
-	private List<String> hobby = new ArrayList<String>();
 	private int age;
 	private String genre;
+	private Coordonnee coordonnee;
+	private List<String> hobby = new ArrayList<String>();
+	private List<String> commentaires = new ArrayList<String>();
 	
 	public Utilisateur(){}
 	
@@ -58,6 +59,18 @@ public class Utilisateur {
 
 	public void setGenre(String genre) {
 		this.genre = genre;
+	}
+
+	public void addCommentaire(String c){
+		this.commentaires.add(c);
+	}
+	
+	public List<String> getCommentaires() {
+		return commentaires;
+	}
+
+	public void setCommentaires(List<String> commentaires) {
+		this.commentaires = commentaires;
 	}
 
 	@Override

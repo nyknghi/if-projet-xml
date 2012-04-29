@@ -1,0 +1,11 @@
+#table-design thead {
+	width: 100%;
+}
+#table-design td {
+	padding: 5px 5px 5px 0;
+	vertical-align: top;
+}
+#table-design thead th {
+	padding-right: 10px;
+	text-align: left;
+}

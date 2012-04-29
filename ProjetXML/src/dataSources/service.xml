@@ -6,7 +6,8 @@
 			<nom>Jean</nom>
 			<coordonnee>
 				<adresse>
-					<rue>11 Rue Jacquemont</rue>
+					<numero>11</numero>
+					<rue>Jacquemont</rue>
 					<code>75017</code>
 					<ville>Paris</ville>
 				</adresse>
@@ -19,5 +20,13 @@
 			<commentaire>Bien amuse et eclate</commentaire>
 			<note>3</note>
 		</activite>
+		<activite debut="27/07/11" fin="19/10/11" type="musique">
+			<ville>Nice</ville>
+			<nom>Festival</nom>
+			<commentaire>Ennuyeux</commentaire>
+			<commentaire>Luxe</commentaire>
+			<note>4</note>
+		</activite>
 	</participation>
 </service>
+

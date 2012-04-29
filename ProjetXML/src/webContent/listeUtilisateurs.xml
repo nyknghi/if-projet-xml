@@ -1,0 +1,38 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="fiche.css">
+<title>Liste utilisateurs</title>
+</head>
+<body>
+<h1>Service de partage d'informations touristiques</h1>
+<h2>Utilisateurs actifs</h2>
+<table border="1">
+<tr>
+<th>Nom</th><th>Age</th><th>Genre</th><th>Adresse</th><th>Hobbies</th>
+</tr>
+<tr>
+<td>Jean</td><td>20</td><td>homme</td><td>11
+						&nbsp;
+					Rue
+					Jacquemont
+				&nbsp;
+			75017
+				&nbsp;
+			Paris</td><td>Sport &nbsp;
+	</td>
+</tr>
+<tr>
+<td>Alice</td><td>22</td><td>femme</td><td>2
+						&nbsp;
+					Avenue
+					Clichy
+				&nbsp;
+			75008
+				&nbsp;
+			Paris</td><td>Musique &nbsp;
+	</td>
+</tr>
+</table>
+</body>
+</html>

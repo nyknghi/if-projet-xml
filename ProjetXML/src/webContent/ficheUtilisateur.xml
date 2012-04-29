@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<title>Fiche utilisateur</title>
+		<meta http-equiv="Content-Language" content="fr-FR" />
+		<link rel="stylesheet" type="text/css" href="fiche.css"/>
+	</head>
+	<body>
+		<h1>Service de partage d'informations touristiques</h1>
+		<div id="user">
+			<h2>Informations personnelles</h2>
+			<table id="table-design">
+			
+				<tr>
+					<td>Nom</td>
+					<td>Jean</td>
+				</tr>
+				<tr>
+					<td>Age</td>
+					<td>20</td>
+				</tr>
+				<tr>
+					<td>Genre</td>
+					<td>homme</td>
+				</tr>
+				<tr>
+					<td>Hobbies</td>
+					<td>Sport &nbsp;
+					</td>
+				</tr>
+				<tr>
+					<td>Adresse</td>
+					<td>11
+						&nbsp;
+						Rue
+						Jacquemont
+				&nbsp;
+						75017
+				&nbsp;
+						Paris
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="activites">
+			<h2>Activites recentes
+			</h2>
+			<table border="1">
+				<tr>
+					<td>Intitule</td>
+					<td>Sky</td>
+				</tr>
+				<tr>
+					<td>Ville</td>
+					<td>Paris</td>
+				</tr>
+				<tr>
+					<td>Date
+						de d&eacute;but
+					</td>
+					<td>17/07/11</td>
+				</tr>
+				<tr>
+					<td>Date de fin</td>
+					<td>19/10/11</td>
+				</tr>
+				<tr>
+					<td>Type
+						d'activite
+					</td>
+					<td>sport</td>
+				</tr>
+			</table>
+			<p>Note: 3</p>
+			<p>Commentaires (1): </p>
+			<p>Bien amuse et eclate</p>
+			<table border="1">
+				<tr>
+					<td>Intitule</td>
+					<td>Festival</td>
+				</tr>
+				<tr>
+					<td>Ville</td>
+					<td>Nice</td>
+				</tr>
+				<tr>
+					<td>Date
+						de d&eacute;but
+					</td>
+					<td>27/07/11</td>
+				</tr>
+				<tr>
+					<td>Date de fin</td>
+					<td>19/10/11</td>
+				</tr>
+				<tr>
+					<td>Type
+						d'activite
+					</td>
+					<td>musique</td>
+				</tr>
+			</table>
+			<p>Note: 4</p>
+			<p>Commentaires (2): </p>
+			<p>Ennuyeux</p>
+			<p>Luxe</p>
+		</div>
+	</body>
+</html>

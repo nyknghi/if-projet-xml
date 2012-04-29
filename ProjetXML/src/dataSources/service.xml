@@ -2,30 +2,11 @@
 <!DOCTYPE service SYSTEM "../grammaire/service.dtd" >
 <service>
 	<participation>
-		<utilisateur id="1" age="20" genre="homme">
-			<nom>Jean</nom>
-			<coordonnee>
-				<adresse>
-					<numero>11</numero>
-					<rue>Jacquemont</rue>
-					<code>75017</code>
-					<ville>Paris</ville>
-				</adresse>
-			</coordonnee>
-			<hobby>Sport</hobby>
+		<utilisateur id="1">
 		</utilisateur>
-		<activite id="1" debut="17/07/11" fin="19/10/11" type="sport">
-			<ville>Paris</ville>
-			<nom>Sky</nom>
-			<commentaire>Bien amuse et eclate</commentaire>
-			<note>3</note>
+		<activite id="1">
 		</activite>
-		<activite id="2" debut="27/07/11" fin="19/10/11" type="musique">
-			<ville>Nice</ville>
-			<nom>Festival</nom>
-			<commentaire>Ennuyeux</commentaire>
-			<commentaire>Luxe</commentaire>
-			<note>4</note>
+		<activite id="2">
 		</activite>
 	</participation>
 </service>

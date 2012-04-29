@@ -79,8 +79,8 @@ public class ParserFormulaire extends DefaultHandler{
 			activite.setNom(s);
 		}
 		if (courant.equals("commentaire")){	
-			activite.addCommentaire(s);
-			utilisateur.addCommentaire(s);
+			activite.setCommentaire(s);
+			utilisateur.setCommentaires(s);
 		}
 		if (courant.equals("note")){ activite.addNote(Integer.parseInt(s));}
 		
@@ -96,7 +96,7 @@ public class ParserFormulaire extends DefaultHandler{
 		if (courant.equals("departement")) { adr.setDepartement(s); }
 		if (courant.equals("mail")) { coord.setEmail(s); }
 		if (courant.equals("telephone")) { coord.addTelephone(s); }
-		if (courant.equals("hobby")) { utilisateur.addHobby(s); }
+		if (courant.equals("hobby")) { utilisateur.setHobby(s); }
 	}
 
 	public void afficher(){

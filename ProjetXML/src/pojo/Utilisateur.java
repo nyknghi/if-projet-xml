@@ -8,12 +8,12 @@ public class Utilisateur {
 	private int age;
 	private String genre;
 	private Coordonnee coordonnee;
-	private List<String> hobby = new ArrayList<String>();
-	private List<String> commentaires = new ArrayList<String>();
+	private String hobby;
+	private String commentaires;
 	
 	public Utilisateur(){}
 	
-	public Utilisateur(String nom, Coordonnee coordonnee, List<String> hobby, int age, String genre) {
+	public Utilisateur(String nom, Coordonnee coordonnee, String hobby, int age, String genre) {
 		this.nom = nom;
 		this.coordonnee = coordonnee;
 		this.hobby = hobby;
@@ -34,14 +34,14 @@ public class Utilisateur {
 		this.coordonnee = coordonnee;
 	}
 	
-	public void addHobby(String h){
-		this.hobby.add(h);
-	}
+//	public void addHobby(String h){
+//		this.hobby.add(h);
+//	}
 	
-	public List<String> getHobby() {
+	public String getHobby() {
 		return hobby;
 	}
-	public void setHobby(List<String> hobby) {
+	public void setHobby(String hobby) {
 		this.hobby = hobby;
 	}
  
@@ -61,15 +61,15 @@ public class Utilisateur {
 		this.genre = genre;
 	}
 
-	public void addCommentaire(String c){
-		this.commentaires.add(c);
-	}
+//	public void addCommentaire(String c){
+//		this.commentaires.add(c);
+//	}
 	
-	public List<String> getCommentaires() {
+	public String getCommentaires() {
 		return commentaires;
 	}
 
-	public void setCommentaires(List<String> commentaires) {
+	public void setCommentaires(String commentaires) {
 		this.commentaires = commentaires;
 	}
 

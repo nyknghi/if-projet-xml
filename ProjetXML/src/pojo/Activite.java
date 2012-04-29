@@ -6,7 +6,7 @@ import java.util.List;
 public class Activite {
 	private String ville;
 	private String nom;
-	private List<String> commentaire = new ArrayList<String>();
+	private String commentaire;
 	private int note;
 	private String debut;
 	private String fin;
@@ -14,7 +14,7 @@ public class Activite {
 	
 	public Activite(){}
 	
-	public Activite(String ville, String nom, List<String> commentaire,
+	public Activite(String ville, String nom, String commentaire,
 			int note, String debut, String fin, String type) {
 		this.ville = ville;
 		this.nom = nom;
@@ -45,15 +45,15 @@ public class Activite {
 		this.nom = nom;
 	}
 
-	public void addCommentaire(String c){
-		this.commentaire.add(c);
-	}
+//	public void addCommentaire(String c){
+//		this.commentaire.add(c);
+//	}
 	
-	public List<String> getCommentaire() {
+	public String getCommentaire() {
 		return commentaire;
 	}
 
-	public void setCommentaire(List<String> commentaire) {
+	public void setCommentaire(String commentaire) {
 		this.commentaire = commentaire;
 	}
 

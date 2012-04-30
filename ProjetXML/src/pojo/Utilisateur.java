@@ -10,6 +10,7 @@ public class Utilisateur {
 	private Coordonnee coordonnee;
 	private String hobby;
 	private String commentaires;
+	private int id;
 	
 	public Utilisateur(){}
 	
@@ -65,6 +66,14 @@ public class Utilisateur {
 //		this.commentaires.add(c);
 //	}
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getCommentaires() {
 		return commentaires;
 	}

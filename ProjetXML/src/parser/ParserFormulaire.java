@@ -24,15 +24,14 @@ public class ParserFormulaire extends DefaultHandler{
 		formulaire = new Formulaire();
 		if (qName.equals("action")){
 			typeAction = att.getValue(0);
-			if (typeAction.equals("inscrire")){
-				participation = new Participation();
-			}
+			participation = new Participation();
 		}
 		if (qName.equals("activite")){
 			activite = new Activite();
-			activite.setDebut(att.getValue(0));
-			activite.setFin(att.getValue(1));
-			activite.setType(att.getValue(2));
+			activite.setId(Integer.parseInt(att.getValue(0)));
+			activite.setDebut(att.getValue(1));
+			activite.setFin(att.getValue(2));
+			activite.setType(att.getValue(3));
 			parent = qName;
 			if (participation != null){
 				participation.setActivite(activite);
@@ -42,6 +41,7 @@ public class ParserFormulaire extends DefaultHandler{
 			utilisateur = new Utilisateur();
 			utilisateur.setAge(Integer.parseInt(att.getValue(0)));
 			utilisateur.setGenre(att.getValue(1));
+			utilisateur.setId(Integer.parseInt(att.getValue(2)));
 			parent = qName;
 			if (participation != null){
 				participation.setUtilisateur(utilisateur);
@@ -80,7 +80,7 @@ public class ParserFormulaire extends DefaultHandler{
 		}
 		if (courant.equals("commentaire")){	
 			activite.setCommentaire(s);
-			utilisateur.setCommentaires(s);
+//			utilisateur.setCommentaires(s);
 		}
 		if (courant.equals("note")){ activite.addNote(Integer.parseInt(s));}
 		
@@ -102,5 +102,18 @@ public class ParserFormulaire extends DefaultHandler{
 	public void afficher(){
 		System.out.println(formulaire);
 		System.out.println(participation);
+	}
+	
+	public String getTypeAction() {
+		return typeAction;
+	}
+	public void setTypeAction(String typeAction) {
+		this.typeAction = typeAction;
+	}
+	public Participation getParticipation() {
+		return participation;
+	}
+	public void setParticipation(Participation participation) {
+		this.participation = participation;
 	}
 }

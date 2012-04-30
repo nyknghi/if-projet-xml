@@ -11,6 +11,7 @@ public class Activite {
 	private String debut;
 	private String fin;
 	private String type;
+	private int id;
 	
 	public Activite(){}
 	
@@ -23,6 +24,14 @@ public class Activite {
 		this.debut = debut;
 		this.fin = fin;
 		this.type = type;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public void addNote(int n){

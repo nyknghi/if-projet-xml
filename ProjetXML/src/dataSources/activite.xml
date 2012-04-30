@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE lutilisateurs SYSTEM "../grammaire/utilisateur.dtd" >
+<!DOCTYPE lactivites SYSTEM "../grammaire/activite.dtd" >
 <lactivites>
   <activite id="1" debut="17/07/11" fin="19/10/11" type="sport">
     <ville>Paris</ville>
     <nom>Sky</nom>
-    <commentaire>Bien amuse et eclate</commentaire>
-    <note>3</note>
   </activite>
   <activite id="2" debut="04/07/12" fin="03/09/12" type="musique">
     <ville>Nice</ville>
     <nom>Festival</nom>
-    <commentaire>Voici un commentaire 1</commentaire>
-    <commentaire>Voici un commentaire 2</commentaire>
-    <note>3</note>
   </activite>
 </lactivites>

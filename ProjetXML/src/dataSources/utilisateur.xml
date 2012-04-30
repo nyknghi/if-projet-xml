@@ -1,1 +1,49 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><lutilisateurs><utilisateur age="20" genre="homme" id="1"><nom>Jean</nom><coordonnee><adresse><numero>11</numero><rue>Jacquemont</rue><code>75017</code><ville>Paris</ville></adresse></coordonnee><hobby>Sport</hobby></utilisateur><utilisateur age="22" genre="femme" id="2"><nom>Alice</nom><coordonnee><adresse><numero>2</numero><avenue>Clichy</avenue><code>75008</code><ville>Paris</ville></adresse></coordonnee><hobby>Musique</hobby></utilisateur><utilisateur age="24" genre="homme" id="3"><nom>Dung</nom><coordonne><adresse><rue/><code>93140</code><ville/></adresse></coordonne><hobby>Football</hobby></utilisateur></lutilisateurs>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<lutilisateurs>
+	<utilisateur age="20" genre="homme" id="1">
+		<nom>Jean</nom>
+		<coordonnee>
+			<adresse>
+				<numero>11</numero>
+				<rue>Jacquemont</rue>
+				<code>75017</code>
+				<ville>Paris</ville>
+			</adresse>
+		</coordonnee>
+		<hobby>Sport</hobby>
+	</utilisateur>
+	<utilisateur age="22" genre="femme" id="2">
+		<nom>Alice</nom>
+		<coordonnee>
+			<adresse>
+				<numero>2</numero>
+				<avenue>Clichy</avenue>
+				<code>75008</code>
+				<ville>Paris</ville>
+			</adresse>
+		</coordonnee>
+		<hobby>Musique</hobby>
+	</utilisateur>
+	<utilisateur age="24" genre="homme" id="3">
+		<nom>Dung</nom>
+		<coordonne>
+			<adresse>
+				<rue />
+				<code>93140</code>
+				<ville />
+			</adresse>
+		</coordonne>
+		<hobby>Football</hobby>
+	</utilisateur>
+	<utilisateur age="20" genre="homme" id="1">
+		<nom>Jean</nom>
+		<coordonne>
+			<adresse>
+				<rue />
+				<code>75017</code>
+				<ville />
+			</adresse>
+		</coordonne>
+		<hobby>Sport</hobby>
+	</utilisateur>
+</lutilisateurs>

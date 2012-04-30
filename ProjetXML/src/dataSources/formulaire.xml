@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE formulaire SYSTEM "../grammaire/formulaire.dtd" >
+<formulaire>
+	<action typeAction="noter">
+		<activite id="1" debut="17/07/11" fin="19/10/11" type="sport">
+			<ville>Paris</ville>
+			<nom>Sky</nom>
+		</activite>
+		<commentaire>New Comment</commentaire>
+		<note>4</note>
+	</action>
+	<utilisateur age="20" genre="homme" id="1">
+		<nom>Jean</nom>
+		<coordonnee>
+			<adresse>
+				<numero>11</numero>
+				<rue>Jacquemont</rue>
+				<code>75017</code>
+				<ville>Paris</ville>
+			</adresse>
+		</coordonnee>
+		<hobby>Sport</hobby>
+	</utilisateur>
+</formulaire>

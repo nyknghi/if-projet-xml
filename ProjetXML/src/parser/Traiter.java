@@ -5,9 +5,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import pojo.Adresse;
 import pojo.Participation;
-import pojo.Utilisateur;
 
 public class Traiter {
 	Document utilisateurDoc, serviceDoc;
@@ -17,7 +15,7 @@ public class Traiter {
 		participation = p;
 	}
 	
-	public void Inscrire() {
+	public void inscrire() {
 		Element e2 = utilisateurDoc.createElement("utilisateur");
 		utilisateurDoc.getFirstChild().appendChild(e2);
 		e2.setAttribute("id", Integer.toString(participation.getUtilisateur().getId()));
@@ -28,7 +26,7 @@ public class Traiter {
 		ajouterFeuille(e2,"hobby", this.participation.getUtilisateur().getHobby());	
 	}
 	
-	public void Desinscrire() {
+	public void desinscrire() {
 		Node lutilisateurs = utilisateurDoc.getFirstChild();
 		NodeList utilisateurs = lutilisateurs.getChildNodes();
 		for (int i = 0; i < utilisateurs.getLength(); i++) {
@@ -38,7 +36,7 @@ public class Traiter {
 		}
 	}
 	
-	public void Commenter() {
+	public void commenter() {
 		Node service = serviceDoc.getFirstChild();
 		NodeList participations = service.getChildNodes();
 		int i = 0;
@@ -71,7 +69,7 @@ public class Traiter {
 		}
 	}
 	
-	public void Noter() {
+	public void noter() {
 		Node service = serviceDoc.getFirstChild();
 		NodeList participations = service.getChildNodes();
 		int i = 0;

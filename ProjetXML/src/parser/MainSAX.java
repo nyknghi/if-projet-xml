@@ -42,41 +42,37 @@ public class MainSAX {
 				doc = db.parse(filepath);
 				traiter = new Traiter(((ParserFormulaire)handler).getParticipation());
 				traiter.setUtilisateurDoc(doc);
-				traiter.Inscrire();				
+				traiter.inscrire();				
 				break;
 			case "desinscrire" :
 				filepath="src/dataSources/utilisateur.xml";
 				doc = db.parse(filepath);
 				traiter = new Traiter(((ParserFormulaire)handler).getParticipation());
 				traiter.setUtilisateurDoc(doc);
-				traiter.Desinscrire();				
+				traiter.desinscrire();				
 				break;			
 			case "commenter" :
 				filepath="src/dataSources/service.xml";
 				doc = db.parse(filepath);
 				traiter = new Traiter(((ParserFormulaire)handler).getParticipation());
 				traiter.setServiceDoc(doc);
-				traiter.Commenter();				
+				traiter.commenter();				
 				break;		
 			case "noter" :
 				filepath="src/dataSources/service.xml";
 				doc = db.parse(filepath);
 				traiter = new Traiter(((ParserFormulaire)handler).getParticipation());
 				traiter.setServiceDoc(doc);
-				traiter.Noter();				
+				traiter.noter();				
 				break;		
 			default:
 				filepath="src/dataSources/utilisateur.xml";
 				doc = db.parse(filepath);
 				traiter = new Traiter(((ParserFormulaire)handler).getParticipation());
 				traiter.setUtilisateurDoc(doc);
-				traiter.Inscrire();						
+				traiter.inscrire();						
 			}
-			
-			
-//			ParserDOM dom = new ParserDOM(doc);
-			
-			
+					
 			// write the content into xml file
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
 			Transformer transformer = transformerFactory.newTransformer();
@@ -94,10 +90,8 @@ public class MainSAX {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (TransformerConfigurationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (TransformerException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

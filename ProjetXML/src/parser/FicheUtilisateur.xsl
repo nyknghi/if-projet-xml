@@ -21,6 +21,7 @@
 	</xsl:template>
 
 	<xsl:template match="participation">
+	
 		<div id="user">
 			<h2>Informations personnelles</h2>
 			<xsl:apply-templates select="utilisateur" />

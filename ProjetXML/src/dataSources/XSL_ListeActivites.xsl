@@ -25,7 +25,6 @@
 	</xsl:template>
 
 	<xsl:template match="activite">
-		<xsl:variable name="idAct" select="@id" />
 		<table border='1'>
 			<tr>
 				<td>Intitule</td>
@@ -61,6 +60,22 @@
 					<xsl:value-of select="@type" />
 				</td>
 			</tr>
+			<tr>
+				<td>Participants
+				</td>
+				<td>
+					<xsl:call-template name="nbParticipants">
+						<xsl:with-param name="idAct" select="@id"/>
+					</xsl:call-template>
+				</td>
+			</tr>
+			<tr>
+				<td>Note
+				</td>
+				<td>
+					<xsl:value-of select="note" />
+				</td>
+			</tr>
 		</table>
 		
 		<p>
@@ -82,6 +97,10 @@
 		<xsl:value-of select="$comment" />
 	</xsl:template>
 
+	<xsl:template name="nbParticipants">
+		<xsl:param name="idAct"/>
+		<xsl:value-of select="count(document(//service/text())//participation[activite/@id=$idAct])" />
+	</xsl:template>
 
 
 	<!-- <xsl:template match="service"> <xsl:apply-templates select="document(.)//activite" 

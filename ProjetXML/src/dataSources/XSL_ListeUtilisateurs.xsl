@@ -7,7 +7,6 @@
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:output method="html" indent="yes" />
-	<xsl:import href="FicheUtilisateur.xsl"/>
 	
 	<xsl:template match="/">
 		<html>
@@ -25,13 +24,19 @@
 						<th>Genre</th>
 						<th>Adresse</th>
 						<th>Hobbies</th>
+						<th>Activites</th>
+						<th>Nb Commentaires</th>
 					</tr>
-					<xsl:apply-templates select="//utilisateur" />
+					<xsl:apply-templates select="//user" />
 				</table>
 			</body>
 		</html>
 	</xsl:template>
 
+	<xsl:template match="user">
+		<xsl:apply-templates select="document(.)//utilisateur" />
+	</xsl:template>
+	
 	<xsl:template match="utilisateur">
 		<tr>
 			<td>
@@ -46,6 +51,16 @@
 			<xsl:apply-templates select="coordonnee" />
 			<td>
 				<xsl:apply-templates select="hobby" />
+			</td>
+			<td>
+				<xsl:call-template name="nbActivites">
+					<xsl:with-param name="idUser" select="@id"/>
+				</xsl:call-template>
+			</td>
+			<td>
+				<xsl:call-template name="nbCommentaires">
+					<xsl:with-param name="idUser" select="@id"/>
+				</xsl:call-template>
 			</td>
 		</tr>
 	</xsl:template>
@@ -74,5 +89,15 @@
 				&nbsp;
 			<xsl:value-of select="adresse/ville" />
 		</td>
+	</xsl:template>
+	
+	<xsl:template name="nbActivites">
+		<xsl:param name="idUser"/>
+		<xsl:value-of select="count(document(//service/text())//participation[utilisateur/@id=$idUser])" />
+	</xsl:template>
+	
+	<xsl:template name="nbCommentaires">
+		<xsl:param name="idUser"/>
+		<xsl:value-of select="count(document(//service/text())//utilisateur[@id=$idUser]/../commentaire)" />
 	</xsl:template>
 </xsl:stylesheet>

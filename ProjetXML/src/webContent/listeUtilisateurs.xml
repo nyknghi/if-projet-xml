@@ -9,7 +9,7 @@
 <h2>Utilisateurs actifs</h2>
 <table border="1">
 <tr>
-<th>Nom</th><th>Age</th><th>Genre</th><th>Adresse</th><th>Hobbies</th>
+<th>Nom</th><th>Age</th><th>Genre</th><th>Adresse</th><th>Hobbies</th><th>Activites</th><th>Nb Commentaires</th>
 </tr>
 <tr>
 <td>Jean</td><td>20</td><td>homme</td><td>11
@@ -20,7 +20,7 @@
 			75017
 				&nbsp;
 			Paris</td><td>Sport &nbsp;
-	</td>
+	</td><td>2</td><td>2</td>
 </tr>
 <tr>
 <td>Alice</td><td>22</td><td>femme</td><td>2
@@ -31,7 +31,7 @@
 			75008
 				&nbsp;
 			Paris</td><td>Musique &nbsp;
-	</td>
+	</td><td>1</td><td>4</td>
 </tr>
 </table>
 </body>

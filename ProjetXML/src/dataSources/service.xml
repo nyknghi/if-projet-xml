@@ -15,12 +15,10 @@
 	<participation>
 		<utilisateur id="3" />
 		<activite id="1" />
-		<commentaire>
-			<commentaire>comment2</commentaire>
-			<commentaire>comment 3</commentaire>
-			<commentaire>comment 4</commentaire>
-			<commentaire>comment 9</commentaire>
-		</commentaire>
+		<commentaire>comment 2</commentaire>
+		<commentaire>comment 3</commentaire>
+		<commentaire>comment 4</commentaire>
+		<commentaire>comment 9</commentaire>
 		<note>6</note>
 	</participation>
 </service>

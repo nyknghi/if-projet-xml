@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!ELEMENT lactivites (activite*)>
-<!ELEMENT activite (ville, nom)>
+<!ELEMENT activite (ville, nom, commentaire*, note?)>
 <!ATTLIST activite id CDATA #REQUIRED
 					debut CDATA #REQUIRED
 					fin CDATA #IMPLIED
 					type CDATA #REQUIRED>
 <!ELEMENT ville (#PCDATA)>
 <!ELEMENT nom (#PCDATA)>
+<!ELEMENT commentaire (#PCDATA)>
+<!ELEMENT note (#PCDATA)>

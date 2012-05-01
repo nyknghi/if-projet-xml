@@ -6,7 +6,6 @@
 			<ville>Paris</ville>
 			<nom>Sky</nom>
 		</activite>
-		<commentaire>New Comment</commentaire>
 		<note>4</note>
 	</action>
 	<utilisateur age="20" genre="homme" id="1">

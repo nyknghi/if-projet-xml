@@ -1,8 +1,5 @@
 package pojo;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Activite {
 	private String ville;
 	private String nom;

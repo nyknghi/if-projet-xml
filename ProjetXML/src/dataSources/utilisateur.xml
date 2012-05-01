@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<lutilisateurs>
-	<utilisateur age="20" genre="homme" id="1">
+<?xml version="1.0" encoding="UTF-8"?>
+<lutilisateurs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../grammaire/utilisateur.xsd">
+  <utilisateur age="20" genre="homme" id="1">
 		<nom>Jean</nom>
 		<coordonnee>
 			<adresse>
@@ -23,27 +23,5 @@
 			</adresse>
 		</coordonnee>
 		<hobby>Musique</hobby>
-	</utilisateur>
-	<utilisateur age="24" genre="homme" id="3">
-		<nom>Dung</nom>
-		<coordonne>
-			<adresse>
-				<rue />
-				<code>93140</code>
-				<ville />
-			</adresse>
-		</coordonne>
-		<hobby>Football</hobby>
-	</utilisateur>
-	<utilisateur age="20" genre="homme" id="1">
-		<nom>Jean</nom>
-		<coordonne>
-			<adresse>
-				<rue />
-				<code>75017</code>
-				<ville />
-			</adresse>
-		</coordonne>
-		<hobby>Sport</hobby>
 	</utilisateur>
 </lutilisateurs>

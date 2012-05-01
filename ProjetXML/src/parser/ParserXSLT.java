@@ -16,15 +16,15 @@ import javax.xml.transform.stream.StreamSource;
 public class ParserXSLT {
 
 	public static void main(String[] args) {
-		File xmlFile = new File("src/dataSources/utilisateur.xml");
-		File xsltFile = new File("src/parser/ListeUtilisateurs.xsl");
+		File xmlFile = new File("src/dataSources/listeFile.xml");
+		File xsltFile = new File("src/dataSources/ListeActivites.xsl");
 		
 		Source xmlSource = new StreamSource(xmlFile);
 		Source xsltSource = new StreamSource(xsltFile);
 		FileOutputStream sortie;
 		
 		try {
-			sortie = new FileOutputStream("src/webContent/listeUtilisateurs.xml");
+			sortie = new FileOutputStream("src/webContent/listeActivites.xml");
 			Result result = new StreamResult(sortie);
 			TransformerFactory transFact = TransformerFactory.newInstance();
 			Transformer trans;

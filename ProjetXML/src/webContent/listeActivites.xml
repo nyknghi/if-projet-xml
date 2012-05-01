@@ -1,0 +1,67 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="fiche.css">
+<title>Activites touristiques</title>
+</head>
+<body>
+<h2>Service de partage d'informations touristiques</h2>
+<table border="1">
+<tr>
+<td>Intitule</td><td>Sky</td>
+</tr>
+<tr>
+<td>Ville</td><td>Paris</td>
+</tr>
+<tr>
+<td>Date
+					de d&eacute;but
+				</td><td>17/07/11</td>
+</tr>
+<tr>
+<td>Date de fin</td><td>19/10/11</td>
+</tr>
+<tr>
+<td>Type
+					d'activite
+				</td><td>sport</td>
+</tr>
+</table>
+<p>
+			Commentaires (
+			1
+			):
+		</p>
+<p>Bien amuse et eclate</p>
+<table border="1">
+<tr>
+<td>Intitule</td><td>Festival</td>
+</tr>
+<tr>
+<td>Ville</td><td>Nice</td>
+</tr>
+<tr>
+<td>Date
+					de d&eacute;but
+				</td><td>04/07/12</td>
+</tr>
+<tr>
+<td>Date de fin</td><td>03/09/12</td>
+</tr>
+<tr>
+<td>Type
+					d'activite
+				</td><td>musique</td>
+</tr>
+</table>
+<p>
+			Commentaires (
+			4
+			):
+		</p>
+<p>comment 2</p>
+<p>comment 3</p>
+<p>comment 4</p>
+<p>comment 9</p>
+</body>
+</html>

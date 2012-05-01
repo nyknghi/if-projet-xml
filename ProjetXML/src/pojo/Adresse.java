@@ -6,18 +6,15 @@ public class Adresse {
 	private String avenue;
 	private String code;
 	private String ville;
-	private String departement;
 	
 	public Adresse(){}
 	
-	public Adresse(String numero, String rue, String avenue, String code,
-			String ville, String departement) {
+	public Adresse(String numero, String rue, String avenue, String code, String ville) {
 		this.numero = numero;
 		this.rue = rue;
 		this.avenue = avenue;
 		this.code = code;
 		this.ville = ville;
-		this.departement = departement;
 	}
 	public String getNumero() {
 		return numero;
@@ -49,17 +46,11 @@ public class Adresse {
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
-	public String getDepartement() {
-		return departement;
-	}
-	public void setDepartement(String departement) {
-		this.departement = departement;
-	}
 
 	@Override
 	public String toString() {
 		return "Adresse [numero=" + numero + ", rue=" + rue + ", avenue="
 				+ avenue + ", code=" + code + ", ville=" + ville
-				+ ", departement=" + departement + "]";
+				+ "]";
 	}
 }

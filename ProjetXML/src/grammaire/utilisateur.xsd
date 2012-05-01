@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
+	<xsd:element name="lutilisateurs">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="utilisateur" minOccurs="1"  maxOccurs="200"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="utilisateur">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="nom"  minOccurs="1"  maxOccurs="1"/>
+				<xsd:element ref="coordonnee"  minOccurs="1"  maxOccurs="1"/>
+				<xsd:element ref="hobby"/>
+			</xsd:sequence>
+			<xsd:attribute name="id" use="required"/>
+			<xsd:attribute name="age" use="optional"/>
+			<xsd:attribute name="genre" use="optional"/>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="nom" type="xsd:string"/>
+	<xsd:element name="age">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:int">
+				<xsd:minInclusive value="16"/>
+				<xsd:maxInclusive value="60"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	
+	<xsd:element name="genre" default="inconnu">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:enumeration value="homme"/>
+				<xsd:enumeration value="femme"/>
+				<xsd:enumeration value="inconnu"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	
+	<xsd:element name="coordonnee">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="adresse" minOccurs="1"/>
+				<xsd:element ref="mail" minOccurs="0"  maxOccurs="1"/>
+				<xsd:element ref="telephone" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="adresse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="numero"/>
+				<xsd:choice>
+					<xsd:element ref="rue"/>
+					<xsd:element ref="avenue"/>
+				</xsd:choice>
+				<xsd:element ref="code"/>
+				<xsd:element ref="ville"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="numero" type="xsd:int"/>
+	<xsd:element name="rue" type="xsd:string"/>
+	<xsd:element name="avenue" type="xsd:string"/>
+	<xsd:element name="code" type="xsd:string"/>
+	<xsd:element name="ville">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:enumeration value="Paris"/>
+				<xsd:enumeration value="Marseille"/>
+				<xsd:enumeration value="Lyon"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	
+	<xsd:element name="mail">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="contraint_mail"/>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:simpleType name="contraint_mail">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="(.)+@(.)+"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:element name="telephone">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="contraint_tel"/>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:simpleType name="contraint_tel">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="(01|06)+(\s[0-9][0-9]){4}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:element name="hobby" type="xsd:string"/>
+</xsd:schema>

@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
-	<xsd:element name="lactivites">
+	<xsd:element name="service">
 		<xsd:complexType>
 			<xsd:sequence>
-				<xsd:element ref="activite" minOccurs="1" maxOccurs="20"/>
+				<xsd:element ref="participation" minOccurs="1" maxOccurs="200"/>
 			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="participation">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="utilisateur" minOccurs="1" maxOccurs="1"/>
+				<xsd:element ref="activite" minOccurs="1" maxOccurs="1"/>
+				<xsd:element ref="commentaire" minOccurs="0" maxOccurs="50"/>
+				<xsd:element ref="note" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="utilisateur">
+		<xsd:complexType>
+			<xsd:attribute name="id" use="required"/>
 		</xsd:complexType>
 	</xsd:element>
 	
 	<xsd:element name="activite">
 		<xsd:complexType>
-			<xsd:sequence>
-				<xsd:element ref="ville" minOccurs="1" maxOccurs="1"/>
-				<xsd:element ref="nom" minOccurs="1" maxOccurs="1"/>
-				<xsd:element ref="commentaire" minOccurs="0" maxOccurs="50"/>
-				<xsd:element ref="note" minOccurs="1" maxOccurs="1"/>
-			</xsd:sequence>
 			<xsd:attribute name="id" use="required"/>
-			<xsd:attribute name="debut" use="required"/>
-			<xsd:attribute name="fin" use="optional"/>
-			<xsd:attribute name="type" use="required"/>
 		</xsd:complexType>
 	</xsd:element>
-	
-	<xsd:element name="ville" type="xsd:string"/>
-	<xsd:element name="nom" type="xsd:string"/>
 	
 	<xsd:element name="commentaire" type="xsd:string"/>
 	<xsd:element name="note">
@@ -34,7 +39,8 @@
 				<xsd:maxInclusive value="5"/>
 			</xsd:restriction>
 		</xsd:simpleType>
-	</xsd:element>	
+	</xsd:element>
+	
 </xsd:schema>
 
 

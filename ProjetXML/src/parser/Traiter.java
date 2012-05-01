@@ -47,7 +47,7 @@ public class Traiter {
 				if (participations.item(i).getChildNodes().item(1).getAttributes().item(0).getTextContent().equals(Integer.toString(participation.getActivite().getId()))) {
 					Element e2 = serviceDoc.createElement("commentaire");
 					participations.item(i).getChildNodes().item(2).appendChild(e2);
-					e2.setTextContent(participation.getActivite().getCommentaire());
+					e2.setTextContent(participation.getCommentaire());
 					isExistId = true;
 					break;
 				}
@@ -65,7 +65,7 @@ public class Traiter {
 			e.appendChild(e2);
 			e2 = serviceDoc.createElement("commentaire");
 			e.appendChild(e2);
-			ajouterFeuille(e2,"commentaire", participation.getActivite().getCommentaire());
+			ajouterFeuille(e2,"commentaire", participation.getCommentaire());
 		}
 	}
 	
@@ -79,7 +79,7 @@ public class Traiter {
 			if (participations.item(i).getChildNodes().item(0).getAttributes().item(0).getTextContent().equals(Integer.toString(participation.getUtilisateur().getId()))) {
 				if (participations.item(i).getChildNodes().item(1).getAttributes().item(0).getTextContent().equals(Integer.toString(participation.getActivite().getId()))) {
 					Element e2 = serviceDoc.createElement("commentaire");
-					participations.item(i).getChildNodes().item(3).setTextContent(Integer.toString(participation.getActivite().getNote()));
+					participations.item(i).getChildNodes().item(3).setTextContent(Integer.toString(participation.getNote()));
 					isExistId = true;
 					break;
 				}
@@ -97,7 +97,7 @@ public class Traiter {
 			e.appendChild(e2);
 			e2 = serviceDoc.createElement("note");
 			e.appendChild(e2);	
-			ajouterFeuille(e2,"note", Integer.toString(participation.getActivite().getNote()));
+			ajouterFeuille(e2,"note", Integer.toString(participation.getNote()));
 		}
 	}	
 
@@ -121,8 +121,8 @@ public class Traiter {
 		e2.setAttribute("type", this.participation.getActivite().getType());
 		ajouterFeuille(e2,"ville", this.participation.getActivite().getVille());
 		ajouterFeuille(e2,"nom", this.participation.getActivite().getNom());
-		ajouterFeuille(e2,"commentaire",this.participation.getActivite().getCommentaire());
-		ajouterFeuille(e2,"note", Integer.toString(this.participation.getActivite().getNote()));		
+		ajouterFeuille(e2,"commentaire",this.participation.getCommentaire());
+		ajouterFeuille(e2,"note", Integer.toString(this.participation.getNote()));		
 		return e2;
 	}
 

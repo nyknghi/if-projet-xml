@@ -1,15 +1,11 @@
 package pojo;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Utilisateur {
 	private String nom;
 	private int age;
 	private String genre;
 	private Coordonnee coordonnee;
 	private String hobby;
-	private String commentaires;
 	private int id;
 	
 	public Utilisateur(){}
@@ -35,10 +31,6 @@ public class Utilisateur {
 		this.coordonnee = coordonnee;
 	}
 	
-//	public void addHobby(String h){
-//		this.hobby.add(h);
-//	}
-	
 	public String getHobby() {
 		return hobby;
 	}
@@ -61,10 +53,6 @@ public class Utilisateur {
 	public void setGenre(String genre) {
 		this.genre = genre;
 	}
-
-//	public void addCommentaire(String c){
-//		this.commentaires.add(c);
-//	}
 	
 	public int getId() {
 		return id;
@@ -72,14 +60,6 @@ public class Utilisateur {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getCommentaires() {
-		return commentaires;
-	}
-
-	public void setCommentaires(String commentaires) {
-		this.commentaires = commentaires;
 	}
 
 	@Override

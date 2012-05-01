@@ -37,7 +37,7 @@ public class ParserXSLT {
 		//File xsltFile = new File("src/dataSources/XSL_ListeActivites.xsl");
 		FileOutputStream sortie;
 		try {
-			sortie = new FileOutputStream("src/webContent/resultatRecherche.xml");
+			sortie = new FileOutputStream("src/webContent/resultatRecherche.html");
 			ParserXSLT.parser(xmlFile, xsltFile, sortie);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

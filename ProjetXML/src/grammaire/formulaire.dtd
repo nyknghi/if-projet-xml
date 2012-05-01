@@ -5,7 +5,7 @@
 %utilisateur;
 
 <!ELEMENT formulaire (action, utilisateur)>
-<!ELEMENT action (activite, commentaire?, note?)>
+<!ELEMENT action (activite, note?, commentaire?)>
 <!ATTLIST action typeAction (inscrire | desinscrire | rechercher | commenter | noter) "inscrire">
 <!ELEMENT commentaire (#PCDATA)>
 <!ELEMENT note (#PCDATA)>

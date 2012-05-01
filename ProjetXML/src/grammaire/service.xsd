@@ -13,8 +13,8 @@
 			<xsd:sequence>
 				<xsd:element ref="utilisateur" minOccurs="1" maxOccurs="1"/>
 				<xsd:element ref="activite" minOccurs="1" maxOccurs="1"/>
-				<xsd:element ref="commentaire" minOccurs="0" maxOccurs="50"/>
 				<xsd:element ref="note" minOccurs="1" maxOccurs="1"/>
+				<xsd:element ref="commentaire" minOccurs="0" maxOccurs="50"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>

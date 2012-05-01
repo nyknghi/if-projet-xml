@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!ELEMENT service (participation)*>
-<!ELEMENT participation (utilisateur, activite, commentaire*, note?)>
+<!ELEMENT participation (utilisateur, activite, note?, commentaire*)>
 <!ELEMENT utilisateur EMPTY>
 <!ATTLIST utilisateur id CDATA #REQUIRED>
 <!ELEMENT activite EMPTY>
 <!ATTLIST activite id CDATA #REQUIRED>
-<!ELEMENT commentaire (#PCDATA)>
 <!ELEMENT note (#PCDATA)>
+<!ELEMENT commentaire (#PCDATA)>
 

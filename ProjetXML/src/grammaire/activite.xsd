@@ -13,8 +13,8 @@
 			<xsd:sequence>
 				<xsd:element ref="ville" minOccurs="1" maxOccurs="1"/>
 				<xsd:element ref="nom" minOccurs="1" maxOccurs="1"/>
-				<xsd:element ref="commentaire" minOccurs="0" maxOccurs="50"/>
 				<xsd:element ref="note" minOccurs="1" maxOccurs="1"/>
+				<xsd:element ref="commentaire" minOccurs="0" maxOccurs="50"/>
 			</xsd:sequence>
 			<xsd:attribute name="id" use="required"/>
 			<xsd:attribute name="debut" use="required"/>

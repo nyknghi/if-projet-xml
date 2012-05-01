@@ -4,8 +4,8 @@
 	<activite id="1" debut="17/07/11" fin="19/10/11" type="sport">
 		<ville>Paris</ville>
 		<nom>Sky</nom>
-		<commentaire>Bien amuse et eclate</commentaire>
 		<note>3</note>
+		<commentaire>Bien amuse et eclate</commentaire>
 	</activite>
 	<activite id="2" debut="04/07/12" fin="03/09/12" type="musique">
 		<ville>Nice</ville>

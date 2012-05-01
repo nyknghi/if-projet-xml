@@ -1,6 +1,8 @@
 package parser;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -65,6 +67,16 @@ public class MainSAX {
 				traiter.setServiceDoc(doc);
 				traiter.noter();				
 				break;		
+			case "rechercher" :
+				File xmlFile = new File("src/dataSources/formulaire.xml");
+				File xsltFile = new File("src/dataSources/XSL_ResultatRecherche.xsl");
+				FileOutputStream sortie;
+				try {
+					sortie = new FileOutputStream("src/webContent/resultatRecherche.xml");
+					ParserXSLT.parser(xmlFile, xsltFile, sortie);
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				}	
 			default:
 				filepath="src/dataSources/utilisateur.xml";
 				doc = db.parse(filepath);

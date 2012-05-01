@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<lutilisateurs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../grammaire/utilisateur.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><lutilisateurs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../grammaire/utilisateur.xsd">
   <utilisateur age="20" genre="homme" id="1">
 		<nom>Jean</nom>
 		<coordonnee>

@@ -101,13 +101,5 @@
 		<xsl:param name="idAct"/>
 		<xsl:value-of select="count(document(//service/text())//participation[activite/@id=$idAct])" />
 	</xsl:template>
-
-
-	<!-- <xsl:template match="service"> <xsl:apply-templates select="document(.)//activite" 
-		/> </xsl:template> <xsl:template match="activite"> <xsl:variable name="idAct" 
-		select="@id"/> <xsl:value-of select="$idAct" /> </xsl:template> <xsl:template 
-		name="findActivite"> <xsl:param name="id"/> <xsl:variable name="listeActivites" 
-		select="/ListFile/act/text()"/> <xsl:value-of select="document($listeActivites)//activite[@id=$id]"/> 
-		</xsl:template> -->
-
+	
 </xsl:stylesheet>

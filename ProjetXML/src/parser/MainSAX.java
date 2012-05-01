@@ -68,7 +68,7 @@ public class MainSAX {
 				traiter.noter();				
 				break;		
 			case "rechercher" :
-				File xmlFile = new File("src/dataSources/formulaire.xml");
+				File xmlFile = new File("src/dataSources/listeFile.xml");
 				File xsltFile = new File("src/dataSources/XSL_ResultatRecherche.xsl");
 				FileOutputStream sortie;
 				try {

@@ -33,11 +33,11 @@ public class ParserXSLT {
 	
 	public static void main(String[] args) {
 		File xmlFile = new File("src/dataSources/listeFile.xml");
-		File xsltFile = new File("src/dataSources/XSL_ListeUtilisateurs.xsl");
+		File xsltFile = new File("src/dataSources/XSL_ResultatRecherche.xsl");
 		//File xsltFile = new File("src/dataSources/XSL_ListeActivites.xsl");
 		FileOutputStream sortie;
 		try {
-			sortie = new FileOutputStream("src/webContent/listeUtilisateurs.xml");
+			sortie = new FileOutputStream("src/webContent/resultatRecherche.xml");
 			ParserXSLT.parser(xmlFile, xsltFile, sortie);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

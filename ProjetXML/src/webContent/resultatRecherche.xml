@@ -1,0 +1,67 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="fiche.css">
+<title>Activites touristiques</title>
+</head>
+<body>
+<h1>Service de partage d'informations touristiques</h1>
+<h2>Informations personnelles</h2>
+<table>
+<tr>
+<td>Nom</td><td>Jean</td>
+</tr>
+<tr>
+<td>Age</td><td>20</td>
+</tr>
+<tr>
+<td>Genre</td><td>homme</td>
+</tr>
+<tr>
+<td>Hobbies</td><td>Sport &nbsp;
+	</td>
+</tr>
+<tr>
+<td>Adresse</td><td>11
+						&nbsp;
+						Rue
+						Jacquemont
+				&nbsp;
+				75017
+				&nbsp;
+				Paris</td>
+</tr>
+</table>
+<h2>Resultat de la recherche</h2>
+<table border="1">
+<tr>
+<td>Intitule</td><td>Sky</td>
+</tr>
+<tr>
+<td>Ville</td><td>Paris</td>
+</tr>
+<tr>
+<td>Date
+					de d&eacute;but
+				</td><td>17/07/11</td>
+</tr>
+<tr>
+<td>Date de fin</td><td>19/10/11</td>
+</tr>
+<tr>
+<td>Type
+					d'activite
+				</td><td>sport</td>
+</tr>
+</table>
+<p>
+			Note:
+			3</p>
+<p>
+			Commentaires (
+			1
+			):
+		</p>
+<p>Bien amuse et eclate</p>
+</body>
+</html>

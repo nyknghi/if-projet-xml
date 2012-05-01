@@ -3,4 +3,5 @@
 	<service>service.xml</service>
 	<act>activite.xml</act>
 	<user>utilisateur.xml</user>	
+	<form>formulaire.xml</form>
 </ListFile>

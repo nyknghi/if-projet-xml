@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE formulaire SYSTEM "../grammaire/formulaire.dtd" >
 <formulaire>
-	<action typeAction="noter">
-		<activite id="1" debut="17/07/11" fin="19/10/11" type="sport">
+	<action typeAction="rechercher">
+		<activite id="1" debut="" fin="" type="">
 			<ville>Paris</ville>
-			<nom>Sky</nom>
+			<nom></nom>
 		</activite>
 		<note>4</note>
 	</action>

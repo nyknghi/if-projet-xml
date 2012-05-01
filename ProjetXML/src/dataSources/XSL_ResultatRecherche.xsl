@@ -10,32 +10,139 @@
 	<xsl:template match="/">
 		<html>
 			<head>
-				<link rel="stylesheet" type="text/css" href="fiche.css"/>
+				<link rel="stylesheet" type="text/css" href="fiche.css" />
 				<title>Activites touristiques</title>
 			</head>
 			<body>
 				<h1>Service de partage d'informations touristiques</h1>
-				<xsl:apply-templates select="//participation" />
+				<xsl:apply-templates select="//form" />
 			</body>
 		</html>
 	</xsl:template>
 
-	<xsl:template match="participation">
-	
-		<div id="user">
-			<h2>Informations personnelles</h2>
-			<xsl:apply-templates select="utilisateur" />
-		</div>
-
-		<div id="activites">
-			<h2>Activites recentes
-			</h2>
-			<xsl:apply-templates select="activite" />
-		</div>
+	<xsl:template match="form">
+		<xsl:variable name="id" select="document(.)//utilisateur/@id" />
+		<xsl:variable name="ville" select="document(.)//activite/ville" />
+		<xsl:variable name="nom" select="document(.)//activite/nom" />
+		<xsl:variable name="debut" select="document(.)//activite/@debut" />
+		<xsl:variable name="fin" select="document(.)//activite/@fin" />
+		<xsl:variable name="type" select="document(.)//activite/@type" />
+		
+		<h2>Informations personnelles</h2>
+		<xsl:apply-templates select="document(//user/text())//utilisateur[@id=$id]"/>
+		
+		<h2>Resultat de la recherche</h2>
+		<xsl:choose>
+			<xsl:when test="$ville != '' and $nom ='' and $debut = '' and $fin = '' and $type= ''">
+				<xsl:apply-templates
+					select="document(//act/text())//activite[ville=$ville]" />
+			</xsl:when>
+			<xsl:when test="$ville = '' and $nom !='' and $debut = '' and $fin = '' and $type= ''">
+				<xsl:apply-templates
+					select="document(//act/text())//activite[nom=$nom]" />
+			</xsl:when>
+			<xsl:when test="$ville = '' and $nom ='' and $debut != '' and $fin = '' and $type= ''">
+				<xsl:apply-templates
+					select="document(//act/text())//activite[@debut=$debut]" />
+			</xsl:when>
+			<xsl:when test="$ville = '' and $nom ='' and $debut = '' and $fin != '' and $type= ''">
+				<xsl:apply-templates
+					select="document(//act/text())//activite[@fin=$fin]" />
+			</xsl:when>
+			<xsl:when test="$ville != '' and $nom !='' and $debut = '' and $fin = '' and $type= ''">
+				<xsl:apply-templates
+					select="document(//act/text())//activite[ville=$ville and nom=$nom]" />
+			</xsl:when>
+			<xsl:when test="$ville != '' and $nom ='' and $debut != '' and $fin = '' and $type= ''">
+				<xsl:apply-templates
+					select="document(//act/text())//activite[ville=$ville and @debut=$debut]" />
+			</xsl:when>
+			<xsl:when test="$ville != '' and $nom ='' and $debut = '' and $fin != '' and $type= ''">
+				<xsl:apply-templates
+					select="document(//act/text())//activite[ville=$ville and @debut=$debut]" />
+			</xsl:when>
+			<xsl:when test="$ville != '' and $nom ='' and $debut = '' and $fin = '' and $type != ''">
+				<xsl:apply-templates
+					select="document(//act/text())//activite[ville=$ville and @type=$type]" />
+			</xsl:when>
+			<xsl:when test="$ville = '' and $nom !='' and $debut != '' and $fin = '' and $type= ''">
+				<xsl:apply-templates
+					select="document(//act/text())//activite[nom=$nom and @debut=$debut]" />
+			</xsl:when>
+			<xsl:when test="$ville = '' and $nom !='' and $debut = '' and $fin != '' and $type= ''">
+				<xsl:apply-templates
+					select="document(//act/text())//activite[nom=$nom and @fin=$fin]" />
+			</xsl:when>
+			<xsl:when test="$ville = '' and $nom !='' and $debut = '' and $fin = '' and $type != ''">
+				<xsl:apply-templates
+					select="document(//act/text())//activite[nom=$nom and @type=$type]" />
+			</xsl:when>
+			<xsl:when test="$ville = '' and $nom ='' and $debut != '' and $fin != '' and $type= ''">
+				<xsl:apply-templates
+					select="document(//act/text())//activite[@debut=$debut and @fin=$fin]" />
+			</xsl:when>
+			<xsl:when test="$ville = '' and $nom ='' and $debut != '' and $fin = '' and $type != ''">
+				<xsl:apply-templates
+					select="document(//act/text())//activite[@debut=$debut and @type=$type]" />
+			</xsl:when>
+			<xsl:when test="$ville = '' and $nom ='' and $debut = '' and $fin != '' and $type != ''">
+				<xsl:apply-templates
+					select="document(//act/text())//activite[@fin=$fin and @type=$type]" />
+			</xsl:when>
+			<xsl:when test="$ville != '' and $nom !='' and $debut != '' and $fin = '' and $type= ''">
+				<xsl:apply-templates
+					select="document(//act/text())//activite[ville=$ville and nom=$nom and @debut=$debut]" />
+			</xsl:when>
+			<xsl:when test="$ville != '' and $nom !='' and $debut = '' and $fin != '' and $type= ''">
+				<xsl:apply-templates
+					select="document(//act/text())//activite[ville=$ville and nom=$nom and @fin=$fin]" />
+			</xsl:when>
+			<xsl:when test="$ville != '' and $nom !='' and $debut = '' and $fin = '' and $type != ''">
+				<xsl:apply-templates
+					select="document(//act/text())//activite[ville=$ville and nom=$nom and @type=$type]" />
+			</xsl:when>
+			<xsl:when test="$ville = '' and $nom !='' and $debut != '' and $fin != '' and $type= ''">
+				<xsl:apply-templates
+					select="document(//act/text())//activite[nom=$nom and @debut=$debut and @fin=$fin]" />
+			</xsl:when>
+			<xsl:when test="$ville = '' and $nom !='' and $debut != '' and $fin = '' and $type != ''">
+				<xsl:apply-templates
+					select="document(//act/text())//activite[nom=$nom and @debut=$debut and @type=$type]" />
+			</xsl:when>
+			<xsl:when test="$ville = '' and $nom ='' and $debut != '' and $fin != '' and $type != ''">
+				<xsl:apply-templates
+					select="document(//act/text())//activite[@debut=$debut and @fin=$fin and @type=$type]" />
+			</xsl:when>
+			<xsl:when test="$ville != '' and $nom !='' and $debut != '' and $fin != '' and $type = ''">
+				<xsl:apply-templates
+					select="document(//act/text())//activite[ville=$ville and nom=$nom and @debut=$debut and @fin=$fin]" />
+			</xsl:when>
+			<xsl:when test="$ville = '' and $nom !='' and $debut != '' and $fin != '' and $type != ''">
+				<xsl:apply-templates
+					select="document(//act/text())//activite[nom=$nom and @debut=$debut and @fin=$fin and @type=$type]" />
+			</xsl:when>
+			<xsl:when test="$ville != '' and $nom ='' and $debut != '' and $fin != '' and $type != ''">
+				<xsl:apply-templates
+					select="document(//act/text())//activite[ville=$ville and @fin=$fin and @debut=$debut and @fin=$fin]" />
+			</xsl:when>
+			<xsl:when test="$ville != '' and $nom !='' and $debut = '' and $fin != '' and $type != ''">
+				<xsl:apply-templates
+					select="document(//act/text())//activite[ville=$ville and nom=$nom and @fin=$fin and @type=$type]" />
+			</xsl:when>
+			<xsl:when test="$ville != '' and $nom !='' and $debut != '' and $fin = '' and $type != ''">
+				<xsl:apply-templates
+					select="document(//act/text())//activite[ville=$ville and nom=$nom and @debut=$debut and @type=$type]" />
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:apply-templates
+					select="document(//act/text())//activite[nom=$nom and ville=$ville 
+													and @debut=$debut and @fin=$fin and @type=$type]" />
+			</xsl:otherwise>
+		</xsl:choose>
 	</xsl:template>
-
+	
 	<xsl:template match="utilisateur">
-		<table border='1'>
+		<table>
 			<tr>
 				<td>Nom</td>
 				<td>
@@ -130,18 +237,28 @@
 				</td>
 			</tr>
 		</table>
-		
-		<p>Note: <xsl:value-of select="note" /> </p>
-		<p>Commentaires (<xsl:call-template name="nbCommentaires" />): </p>
+
+		<p>
+			Note:
+			<xsl:value-of select="note" />
+		</p>
+		<p>
+			Commentaires (
+			<xsl:call-template name="nbCommentaires" />
+			):
+		</p>
 		<xsl:apply-templates select="commentaire" />
 	</xsl:template>
+
 	<xsl:template match="commentaire">
-		<p><xsl:value-of select="." /></p>
+		<p>
+			<xsl:value-of select="." />
+		</p>
 	</xsl:template>
-	
+
 	<xsl:template name="nbCommentaires">
-		<xsl:variable name="comment" select="count(commentaire)"/>
-		<xsl:value-of select="$comment"/>
+		<xsl:variable name="comment" select="count(commentaire)" />
+		<xsl:value-of select="$comment" />
 	</xsl:template>
 
 </xsl:stylesheet>

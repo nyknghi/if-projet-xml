@@ -53,7 +53,7 @@ public class ParserFormulaire extends DefaultHandler{
 		}
 		if (qName.equals("adresse")){ 
 			adr = new Adresse();
-			parent = qName;
+//			parent = qName;
 			utilisateur.getCoordonnee().setAdresse(adr);
 		}		
 		courant = qName;		

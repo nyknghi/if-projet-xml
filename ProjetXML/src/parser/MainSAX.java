@@ -10,6 +10,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
@@ -35,8 +36,8 @@ public class MainSAX {
 			
 			((ParserFormulaire)handler).afficher();
 			
-			String filepath;
-			Document doc;
+			String filepath, filepath2;
+			Document doc, doc2;
 			Traiter traiter;
 			switch (((ParserFormulaire)handler).getTypeAction()) {
 			case "inscrire" :
@@ -55,17 +56,37 @@ public class MainSAX {
 				break;			
 			case "commenter" :
 				filepath="src/dataSources/service.xml";
+				filepath2="src/dataSources/activite.xml";
 				doc = db.parse(filepath);
+				doc2 = db.parse(filepath2);
 				traiter = new Traiter(((ParserFormulaire)handler).getParticipation());
 				traiter.setServiceDoc(doc);
-				traiter.commenter();				
+				traiter.setActiviteDoc(doc2);
+				traiter.commenter();
+				// write the content into xml file
+				TransformerFactory transformerFactory2 = TransformerFactory.newInstance();
+				Transformer transformer2 = transformerFactory2.newTransformer();				
+				transformer2.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM,"../grammaire/activite.dtd");
+				DOMSource source2 = new DOMSource(doc2);
+				StreamResult result2 = new StreamResult(new File(filepath2));
+				transformer2.transform(source2, result2);					
 				break;		
 			case "noter" :
 				filepath="src/dataSources/service.xml";
+				filepath2="src/dataSources/activite.xml";
 				doc = db.parse(filepath);
+				doc2 = db.parse(filepath2);
 				traiter = new Traiter(((ParserFormulaire)handler).getParticipation());
 				traiter.setServiceDoc(doc);
-				traiter.noter();				
+				traiter.setActiviteDoc(doc2);
+				traiter.noter();
+				// write the content into xml file
+				transformerFactory2 = TransformerFactory.newInstance();
+				transformer2 = transformerFactory2.newTransformer();				
+				transformer2.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM,"../grammaire/activite.dtd");
+				source2 = new DOMSource(doc2);
+				result2 = new StreamResult(new File(filepath2));
+				transformer2.transform(source2, result2);				
 				break;		
 			case "rechercher" :
 				File xmlFile = new File("src/dataSources/listeFile.xml");
@@ -84,10 +105,10 @@ public class MainSAX {
 				traiter.setUtilisateurDoc(doc);
 				traiter.inscrire();						
 			}
-					
+				
 			// write the content into xml file
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
-			Transformer transformer = transformerFactory.newTransformer();
+			Transformer transformer = transformerFactory.newTransformer();			
 			DOMSource source = new DOMSource(doc);
 			StreamResult result = new StreamResult(new File(filepath));
 			transformer.transform(source, result);

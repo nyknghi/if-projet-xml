@@ -2,8 +2,8 @@ package pojo;
 
 public class Adresse {
 	private String numero;
-	private String rue;
-	private String avenue;
+	private String rue = "";
+	private String avenue = "";
 	private String code;
 	private String ville;
 	

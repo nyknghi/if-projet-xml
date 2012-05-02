@@ -1,18 +1,2 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE lactivites SYSTEM "../grammaire/activite.dtd" >
-<lactivites>
-	<activite id="1" debut="17/07/11" fin="19/10/11" type="sport">
-		<ville>Paris</ville>
-		<nom>Sky</nom>
-		<note>3</note>
-		<commentaire>Bien amuse et eclate</commentaire>
-	</activite>
-	<activite id="2" debut="04/07/12" fin="03/09/12" type="musique">
-		<ville>Nice</ville>
-		<nom>Festival</nom>
-		<commentaire>comment 2</commentaire>
-		<commentaire>comment 3</commentaire>
-		<commentaire>comment 4</commentaire>
-		<commentaire>comment 9</commentaire>
-	</activite>
-</lactivites>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE lactivites SYSTEM "../grammaire/activite.dtd">
+<lactivites><activite debut="17/07/11" fin="19/10/11" id="1" type="sport"><ville>Paris</ville><nom>Sky</nom><note>5</note><commentaire>Bien amuse et eclate</commentaire></activite><activite debut="04/07/12" fin="03/09/12" id="2" type="musique"><ville>Nice</ville><nom>Festival</nom><note>5</note><commentaire>comment 2</commentaire><commentaire>comment 3</commentaire><commentaire>comment 4</commentaire><commentaire>comment 9</commentaire><commentaire>Dung's commentaire</commentaire><commentaire>Dung's commentaire 2</commentaire></activite></lactivites>

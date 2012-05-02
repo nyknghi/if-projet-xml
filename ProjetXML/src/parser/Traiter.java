@@ -8,7 +8,7 @@ import org.w3c.dom.NodeList;
 import pojo.Participation;
 
 public class Traiter {
-	Document utilisateurDoc, serviceDoc;
+	Document utilisateurDoc, serviceDoc, activiteDoc;
 	private Participation participation;
 	
 	public Traiter(Participation p){
@@ -42,11 +42,11 @@ public class Traiter {
 		int i = 0;
 		boolean isExistId = false;
 		while (i < participations.getLength()) {
-			System.out.println(participations.item(i).getFirstChild().getAttributes().item(0).getTextContent());
+//			System.out.println(participations.item(i).getFirstChild().getAttributes().item(0).getTextContent());
 			if (participations.item(i).getChildNodes().item(0).getAttributes().item(0).getTextContent().equals(Integer.toString(participation.getUtilisateur().getId()))) {
 				if (participations.item(i).getChildNodes().item(1).getAttributes().item(0).getTextContent().equals(Integer.toString(participation.getActivite().getId()))) {
 					Element e2 = serviceDoc.createElement("commentaire");
-					participations.item(i).getChildNodes().item(2).appendChild(e2);
+					participations.item(i).appendChild(e2);
 					e2.setTextContent(participation.getCommentaire());
 					isExistId = true;
 					break;
@@ -62,11 +62,24 @@ public class Traiter {
 			e.appendChild(e2);
 			e2 = serviceDoc.createElement("activite");
 			e2.setAttribute("id", Integer.toString(participation.getActivite().getId()));
-			e.appendChild(e2);
-			e2 = serviceDoc.createElement("commentaire");
-			e.appendChild(e2);
-			ajouterFeuille(e2,"commentaire", participation.getCommentaire());
+			e.appendChild(e2);	
+			ajouterFeuille(e,"commentaire", participation.getCommentaire());
 		}
+		
+		NodeList activites = activiteDoc.getFirstChild().getNextSibling().getChildNodes();
+		i = 0;
+//		isExistId = false;
+		while (i < activites.getLength()) {
+//			System.out.println(activites.item(i));
+			if (activites.item(i).getAttributes().item(2).getTextContent().equals(Integer.toString(participation.getActivite().getId()))) {
+				Element e2 = activiteDoc.createElement("commentaire");
+				activites.item(i).appendChild(e2);
+				e2.setTextContent(participation.getCommentaire());
+//				isExistId = true;
+				break;				
+			}
+			i++;
+		}	
 	}
 	
 	public void noter() {
@@ -75,11 +88,24 @@ public class Traiter {
 		int i = 0;
 		boolean isExistId = false;
 		while (i < participations.getLength()) {
-			System.out.println(participations.item(i).getFirstChild().getAttributes().item(0).getTextContent());
+//			System.out.println(participations.item(i).getChildNodes().item(2));
 			if (participations.item(i).getChildNodes().item(0).getAttributes().item(0).getTextContent().equals(Integer.toString(participation.getUtilisateur().getId()))) {
 				if (participations.item(i).getChildNodes().item(1).getAttributes().item(0).getTextContent().equals(Integer.toString(participation.getActivite().getId()))) {
-					Element e2 = serviceDoc.createElement("commentaire");
-					participations.item(i).getChildNodes().item(3).setTextContent(Integer.toString(participation.getNote()));
+					if (participations.item(i).getChildNodes().getLength() == 2) {
+						Element e2 = serviceDoc.createElement("note");
+						participations.item(i).appendChild(e2);
+						e2.setTextContent(Integer.toString(participation.getNote()));					}
+					else {
+						if (participations.item(i).getChildNodes().item(2).getNodeName() == "note") {
+							participations.item(i).getChildNodes().item(2).setTextContent(Integer.toString(participation.getNote()));
+						}
+						else {
+							Element e2 = serviceDoc.createElement("note");
+							participations.item(i).insertBefore(e2, participations.item(i).getChildNodes().item(2));
+							participations.item(i).getChildNodes().item(2).setTextContent(Integer.toString(participation.getNote()));
+							
+						}
+					}
 					isExistId = true;
 					break;
 				}
@@ -95,9 +121,32 @@ public class Traiter {
 			e2 = serviceDoc.createElement("activite");
 			e2.setAttribute("id", Integer.toString(participation.getActivite().getId()));
 			e.appendChild(e2);
-			e2 = serviceDoc.createElement("note");
-			e.appendChild(e2);	
-			ajouterFeuille(e2,"note", Integer.toString(participation.getNote()));
+			ajouterFeuille(e,"note", Integer.toString(participation.getNote()));
+		}
+		
+		NodeList activites = activiteDoc.getFirstChild().getNextSibling().getChildNodes();
+		i = 0;
+//		isExistId = false;
+		while (i < activites.getLength()) {
+			if (activites.item(i).getAttributes().item(2).getTextContent().equals(Integer.toString(participation.getActivite().getId()))) {
+				if (activites.item(i).getChildNodes().getLength() == 2) {
+					Element e2 = activiteDoc.createElement("note");
+					activites.item(i).appendChild(e2);
+					e2.setTextContent(Integer.toString(participation.getNote()));					}
+				else {
+					if (activites.item(i).getChildNodes().item(2).getNodeName() == "note") {
+						activites.item(i).getChildNodes().item(2).setTextContent(Integer.toString(participation.getNote()));
+					}
+					else {
+						Element e2 = activiteDoc.createElement("note");
+						activites.item(i).insertBefore(e2, activites.item(i).getChildNodes().item(2));
+						activites.item(i).getChildNodes().item(2).setTextContent(Integer.toString(participation.getNote()));
+					}
+				}
+//				isExistId = true;
+				break;				
+			}
+			i++;			
 		}
 	}	
 
@@ -127,7 +176,7 @@ public class Traiter {
 	}
 
 	public Element ajouterCoordonnee(Element e){
-		Element e2 = utilisateurDoc.createElement("coordonne");
+		Element e2 = utilisateurDoc.createElement("coordonnee");
 		e.appendChild(e2);
 		e2.appendChild(ajouterAdresse(e2));
 		return e2;
@@ -136,7 +185,11 @@ public class Traiter {
 	public Element ajouterAdresse(Element e){
 		Element e2 = utilisateurDoc.createElement("adresse");
 		e.appendChild(e2);
-		ajouterFeuille(e2, "rue", this.participation.getUtilisateur().getCoordonnee().getAdresse().getAvenue());
+		ajouterFeuille(e2, "numero",this.participation.getUtilisateur().getCoordonnee().getAdresse().getNumero());				
+		if (participation.getUtilisateur().getCoordonnee().getAdresse().getAvenue()=="") {
+			ajouterFeuille(e2, "rue", this.participation.getUtilisateur().getCoordonnee().getAdresse().getRue());
+		}
+		else ajouterFeuille(e2, "avenue", this.participation.getUtilisateur().getCoordonnee().getAdresse().getAvenue());
 		ajouterFeuille(e2, "code",this.participation.getUtilisateur().getCoordonnee().getAdresse().getCode());		
 		ajouterFeuille(e2, "ville",this.participation.getUtilisateur().getCoordonnee().getAdresse().getVille());
 		return e2;
@@ -169,6 +222,14 @@ public class Traiter {
 
 	public void setServiceDoc(Document serviceDoc) {
 		this.serviceDoc = serviceDoc;
+	}
+
+	public Document getActiviteDoc() {
+		return activiteDoc;
+	}
+
+	public void setActiviteDoc(Document activiteDoc) {
+		this.activiteDoc = activiteDoc;
 	}
 	
 }

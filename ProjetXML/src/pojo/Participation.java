@@ -49,7 +49,7 @@ public class Participation {
 
 	@Override
 	public String toString() {
-		return "Participation [utilisateur=" + utilisateur + ", \nactivite="
+		return "Participation [utilisateur=" + utilisateur + ", \n activite="
 				+ activite + "]";
 	}		
 }

@@ -53,7 +53,7 @@ public class ParserFormulaire extends DefaultHandler{
 		}
 		if (qName.equals("adresse")){ 
 			adr = new Adresse();
-//			parent = qName;
+			parent = qName;
 			utilisateur.getCoordonnee().setAdresse(adr);
 		}		
 		courant = qName;		
@@ -95,7 +95,7 @@ public class ParserFormulaire extends DefaultHandler{
 		if (courant.equals("avenue")) { adr.setAvenue(s); }
 		if (courant.equals("rue")) { adr.setRue(s); }
 		if (courant.equals("code")) { adr.setCode(s); }
-		if (parent.equals("utilisateur") && courant.equals("ville")){ adr.setVille(s); }
+		if (parent.equals("adresse") && courant.equals("ville")){ adr.setVille(s); }
 		if (courant.equals("mail")) { coord.setEmail(s); }
 		if (courant.equals("telephone")) { coord.addTelephone(s); }
 		if (courant.equals("hobby")) { utilisateur.setHobby(s); }
@@ -103,7 +103,7 @@ public class ParserFormulaire extends DefaultHandler{
 
 	public void afficher(){
 		System.out.println(formulaire);
-		System.out.println(participation);
+		//System.out.println(participation);
 	}
 	
 	public String getTypeAction() {

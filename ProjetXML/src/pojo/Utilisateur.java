@@ -65,6 +65,6 @@ public class Utilisateur {
 	@Override
 	public String toString() {
 		return "Utilisateur [nom=" + nom + ", hobby=" + hobby + ", age=" + age
-				+ ", genre=" + genre + "]";
+				+ ", genre=" + genre + "]\n" + this.getCoordonnee().toString();
 	}
 }

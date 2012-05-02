@@ -39,7 +39,7 @@ public class Formulaire {
 
 	@Override
 	public String toString() {
-		return "Formulaire [utilisateur=" + utilisateur + ", typeAction="
-				+ typeAction + ", activite=" + activite + "]";
+		return "Formulaire [utilisateur=" + utilisateur + ", \ntypeAction="
+				+ typeAction + ", \nactivite=" + activite + "]";
 	}
 }

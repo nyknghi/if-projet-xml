@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE formulaire SYSTEM "../grammaire/formulaire.dtd" >
 <formulaire>
-	<action typeAction="noter">
+	<action typeAction="commenter">
 		<activite id="2" debut="" fin="" type="">
 			<ville>Paris</ville>
 			<nom></nom>
@@ -15,7 +15,6 @@
 			<adresse>
 				<numero>19</numero>
 				<avenue>du Breuil</avenue>
-				
 				<code>93140</code>
 				<ville>Marseille</ville>
 			</adresse>

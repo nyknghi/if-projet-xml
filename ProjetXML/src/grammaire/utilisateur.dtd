@@ -3,7 +3,7 @@
 <!ELEMENT utilisateur (nom, coordonnee, hobby*)>
 <!ATTLIST utilisateur id CDATA #REQUIRED 
 					age CDATA #IMPLIED
-					genre (homme | femme) #IMPLIED>
+					genre (masculin | feminin) #IMPLIED>
 <!ELEMENT nom (#PCDATA)>
 <!ELEMENT coordonnee (adresse+, mail?, telephone*)>
 <!ELEMENT adresse (numero, (rue | avenue), code, ville)>

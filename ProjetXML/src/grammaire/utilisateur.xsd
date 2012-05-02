@@ -31,12 +31,11 @@
 		</xsd:simpleType>
 	</xsd:element>
 	
-	<xsd:element name="genre" default="inconnu">
+	<xsd:element name="genre" default="masculin">
 		<xsd:simpleType>
 			<xsd:restriction base="xsd:string">
-				<xsd:enumeration value="homme"/>
-				<xsd:enumeration value="femme"/>
-				<xsd:enumeration value="inconnu"/>
+				<xsd:enumeration value="masculin"/>
+				<xsd:enumeration value="feminin"/>
 			</xsd:restriction>
 		</xsd:simpleType>
 	</xsd:element>
@@ -69,15 +68,7 @@
 	<xsd:element name="rue" type="xsd:string"/>
 	<xsd:element name="avenue" type="xsd:string"/>
 	<xsd:element name="code" type="xsd:string"/>
-	<xsd:element name="ville">
-		<xsd:simpleType>
-			<xsd:restriction base="xsd:string">
-				<xsd:enumeration value="Paris"/>
-				<xsd:enumeration value="Marseille"/>
-				<xsd:enumeration value="Lyon"/>
-			</xsd:restriction>
-		</xsd:simpleType>
-	</xsd:element>
+	<xsd:element name="ville" type="xsd:string"/>
 	
 	<xsd:element name="mail">
 		<xsd:complexType>

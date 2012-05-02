@@ -5,18 +5,24 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Source;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.validation.Validator;
 
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
@@ -25,10 +31,9 @@ import org.xml.sax.helpers.DefaultHandler;
 public class MainSAX {
 	public static void main(String[] args){
 		SAXParserFactory parserFactory = SAXParserFactory.newInstance();
-		parserFactory.setNamespaceAware(true);
-		parserFactory.setValidating(true);
 		try {
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+			dbf.setNamespaceAware(true);
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			SAXParser parser = parserFactory.newSAXParser();
 			DefaultHandler handler = new ParserFormulaire();
@@ -38,21 +43,33 @@ public class MainSAX {
 			
 			String filepath, filepath2;
 			Document doc, doc2;
+			Schema schema;
+			Validator validator;
 			Traiter traiter;
+			SchemaFactory factory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
+			Source schemaFile;				
 			switch (((ParserFormulaire)handler).getTypeAction()) {
 			case "inscrire" :
 				filepath="src/dataSources/utilisateur.xml";
 				doc = db.parse(filepath);
 				traiter = new Traiter(((ParserFormulaire)handler).getParticipation());
 				traiter.setUtilisateurDoc(doc);
-				traiter.inscrire();				
+				traiter.inscrire();			
+				schemaFile = new StreamSource(new File("src/grammaire/utilisateur.xsd"));
+	            schema = factory.newSchema(schemaFile);
+	            validator = schema.newValidator();
+	            validator.validate(new DOMSource(doc));	
 				break;
 			case "desinscrire" :
 				filepath="src/dataSources/utilisateur.xml";
 				doc = db.parse(filepath);
 				traiter = new Traiter(((ParserFormulaire)handler).getParticipation());
 				traiter.setUtilisateurDoc(doc);
-				traiter.desinscrire();				
+				traiter.desinscrire();
+				schemaFile = new StreamSource(new File("src/grammaire/utilisateur.xsd"));
+	            schema = factory.newSchema(schemaFile);
+	            validator = schema.newValidator();
+	            validator.validate(new DOMSource(doc));					
 				break;			
 			case "commenter" :
 				filepath="src/dataSources/service.xml";
@@ -63,6 +80,10 @@ public class MainSAX {
 				traiter.setServiceDoc(doc);
 				traiter.setActiviteDoc(doc2);
 				traiter.commenter();
+				schemaFile = new StreamSource(new File("src/grammaire/service.xsd"));
+	            schema = factory.newSchema(schemaFile);
+	            validator = schema.newValidator();
+	            validator.validate(new DOMSource(doc));					
 				// write the content into xml file
 				TransformerFactory transformerFactory2 = TransformerFactory.newInstance();
 				Transformer transformer2 = transformerFactory2.newTransformer();				
@@ -80,6 +101,10 @@ public class MainSAX {
 				traiter.setServiceDoc(doc);
 				traiter.setActiviteDoc(doc2);
 				traiter.noter();
+				schemaFile = new StreamSource(new File("src/grammaire/service.xsd"));
+	            schema = factory.newSchema(schemaFile);
+	            validator = schema.newValidator();
+	            validator.validate(new DOMSource(doc));					
 				// write the content into xml file
 				transformerFactory2 = TransformerFactory.newInstance();
 				transformer2 = transformerFactory2.newTransformer();				
@@ -103,7 +128,11 @@ public class MainSAX {
 				doc = db.parse(filepath);
 				traiter = new Traiter(((ParserFormulaire)handler).getParticipation());
 				traiter.setUtilisateurDoc(doc);
-				traiter.inscrire();						
+				traiter.inscrire();		
+				schemaFile = new StreamSource(new File("src/grammaire/utilisateur.xsd"));
+	            schema = factory.newSchema(schemaFile);
+	            validator = schema.newValidator();
+	            validator.validate(new DOMSource(doc));						
 			}
 				
 			// write the content into xml file

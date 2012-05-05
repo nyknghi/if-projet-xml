@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE formulaire SYSTEM "../grammaire/formulaire.dtd" >
 <formulaire>
-	<action typeAction="commenter">
+	<action typeAction="noter">
 		<activite id="2" debut="" fin="" type="">
 			<ville>Paris</ville>
 			<nom></nom>
@@ -9,7 +9,7 @@
 		<note>5</note>
 		<commentaire>Dung's commentaire 2</commentaire>
 	</action>
-	<utilisateur age="20" genre="homme" id="2">
+	<utilisateur age="20" genre="masculin" id="2">
 		<nom>Dung</nom>
 		<coordonnee>
 			<adresse>

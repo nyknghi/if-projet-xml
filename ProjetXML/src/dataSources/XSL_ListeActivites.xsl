@@ -14,14 +14,24 @@
 				<title>Activites touristiques</title>
 			</head>
 			<body>
-				<h2>Service de partage d'informations touristiques</h2>
-				<xsl:apply-templates select="//act" />
+				<div id="container">
+					<h2>Service de partage d'informations touristiques</h2>
+					<div id="navigation"></div>
+					<xsl:apply-templates select="//act" />
+					<div id="footer">Copyright © [IF] Projet XML, 2012</div>
+				</div>
 			</body>
 		</html>
 	</xsl:template>
 
 	<xsl:template match="act">
-		<xsl:apply-templates select="document(.)//activite" />
+		<div id="content">
+			<h3>Liste
+				d'activit&eacute;s
+				r&eacute;centes
+			</h3>
+			<xsl:apply-templates select="document(.)//activite" />
+		</div>
 	</xsl:template>
 
 	<xsl:template match="activite">
@@ -65,7 +75,7 @@
 				</td>
 				<td>
 					<xsl:call-template name="nbParticipants">
-						<xsl:with-param name="idAct" select="@id"/>
+						<xsl:with-param name="idAct" select="@id" />
 					</xsl:call-template>
 				</td>
 			</tr>
@@ -77,7 +87,7 @@
 				</td>
 			</tr>
 		</table>
-		
+
 		<p>
 			Commentaires (
 			<xsl:call-template name="nbCommentaires" />
@@ -85,7 +95,7 @@
 		</p>
 		<xsl:apply-templates select="commentaire" />
 	</xsl:template>
-	
+
 	<xsl:template match="commentaire">
 		<p>
 			<xsl:value-of select="." />
@@ -98,8 +108,9 @@
 	</xsl:template>
 
 	<xsl:template name="nbParticipants">
-		<xsl:param name="idAct"/>
-		<xsl:value-of select="count(document(//service/text())//participation[activite/@id=$idAct])" />
+		<xsl:param name="idAct" />
+		<xsl:value-of
+			select="count(document(//service/text())//participation[activite/@id=$idAct])" />
 	</xsl:template>
-	
+
 </xsl:stylesheet>

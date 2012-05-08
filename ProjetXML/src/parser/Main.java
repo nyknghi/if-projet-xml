@@ -149,7 +149,7 @@ public class Main {
 				File xsltFile = new File("src/dataSources/XSL_ResultatRecherche.xsl");
 				FileOutputStream sortie;
 				try {
-					sortie = new FileOutputStream("src/webContent/resultatRecherche.xml");
+					sortie = new FileOutputStream("src/webContent/resultatRecherche.html");
 					ParserXSLT.parser(xmlFile, xsltFile, sortie);
 				} catch (FileNotFoundException e) {
 					e.printStackTrace();

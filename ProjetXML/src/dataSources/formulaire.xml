@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE formulaire SYSTEM "../grammaire/formulaire.dtd" >
 <formulaire>
-	<action typeAction="inscrire">
+	<action typeAction="rechercher">
 		<activite id="" debut="" fin="" type="Sport">
 			<ville>Paris</ville>
 			<nom></nom>

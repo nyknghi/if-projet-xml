@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE formulaire SYSTEM "../grammaire/formulaire.dtd" >
 <formulaire>
-	<action typeAction="noter">
-		<activite id="2" debut="" fin="" type="">
+	<action typeAction="inscrire">
+		<activite id="" debut="" fin="" type="Sport">
 			<ville>Paris</ville>
 			<nom></nom>
 		</activite>
-		<note>5</note>
-		<commentaire>Dung's commentaire 2</commentaire>
 	</action>
-	<utilisateur age="20" genre="masculin" id="2">
-		<nom>Dung</nom>
+	<utilisateur age="" genre="masculin" id="2">
+		<nom></nom>
 		<coordonnee>
 			<adresse>
-				<numero>19</numero>
-				<avenue>du Breuil</avenue>
-				<code>93140</code>
-				<ville>Marseille</ville>
+				<numero></numero>
+				<rue></rue>
+				<code></code>
+				<ville></ville>
 			</adresse>
 		</coordonnee>
-		<hobby>Sport</hobby>
+		<hobby></hobby>
 	</utilisateur>
 </formulaire>

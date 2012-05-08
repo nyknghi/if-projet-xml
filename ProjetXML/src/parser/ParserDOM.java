@@ -66,7 +66,7 @@ public class ParserDOM {
 		int i = 0;
 		boolean isExistId = false;
 		while (i < participations.getLength()) {
-//			System.out.println(participations.item(i).getChildNodes().item(1).getAttributes().item(0).getTextContent());
+			//System.out.println(participations.item(i).getChildNodes().item(1).getAttributes().item(0).getTextContent());
 			if (participations.item(i).getChildNodes().item(0).getAttributes().item(0).getTextContent().equals(Integer.toString(participation.getUtilisateur().getId()))) {
 				if (participations.item(i).getChildNodes().item(1).getAttributes().item(0).getTextContent().equals(Integer.toString(participation.getActivite().getId()))) {
 					Element e2 = serviceDoc.createElement("commentaire");

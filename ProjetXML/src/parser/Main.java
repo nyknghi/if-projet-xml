@@ -45,7 +45,8 @@ public class Main {
 			Validator validator;
 			ParserDOM traiter;
 			SchemaFactory factory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
-			Source schemaFile;				
+			Source schemaFile;			
+			boolean isPartager = false;
 			switch (((ParserFormulaire)handler).getTypeAction()) {
 			case "inscrire" :
 				filepath="src/dataSources/utilisateur.xml";
@@ -58,6 +59,14 @@ public class Main {
 	            validator = schema.newValidator();
 	            validator.validate(new DOMSource(doc));	
 				break;
+			case "partager" :
+				filepath="src/dataSources/activite.xml";
+				doc = db.parse(filepath);
+				traiter = new ParserDOM(((ParserFormulaire)handler).getParticipation());
+				traiter.setActiviteDoc(doc);
+				traiter.partager();
+				isPartager = true;
+				break;				
 			case "desinscrire" :
 				filepath="src/dataSources/utilisateur.xml";
 				doc = db.parse(filepath);
@@ -135,7 +144,10 @@ public class Main {
 				
 			// write the content into xml file
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
-			Transformer transformer = transformerFactory.newTransformer();			
+			Transformer transformer = transformerFactory.newTransformer();	
+			if (isPartager) {
+				transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM,"../grammaire/activite.dtd");				
+			}
 			DOMSource source = new DOMSource(doc);
 			StreamResult result = new StreamResult(new File(filepath));
 			transformer.transform(source, result);

@@ -16,14 +16,30 @@ public class ParserDOM {
 	}
 	
 	public void inscrire() {
+		int lastID = Integer.parseInt(utilisateurDoc.getFirstChild().getLastChild().getAttributes().item(2).getTextContent());
 		Element e2 = utilisateurDoc.createElement("utilisateur");
 		utilisateurDoc.getFirstChild().appendChild(e2);
-		e2.setAttribute("id", Integer.toString(participation.getUtilisateur().getId()));
+		e2.setAttribute("id", Integer.toString(lastID + 1));
 		e2.setAttribute("genre", this.participation.getUtilisateur().getGenre());
 		e2.setAttribute("age", Integer.toString(this.participation.getUtilisateur().getAge()));
 		ajouterFeuille(e2,"nom", this.participation.getUtilisateur().getNom());
 		e2.appendChild(ajouterCoordonnee(e2));
 		ajouterFeuille(e2,"hobby", this.participation.getUtilisateur().getHobby());	
+	}
+	
+	public void partager() {
+		System.out.println(activiteDoc.getFirstChild());
+		int lastID = Integer.parseInt(activiteDoc.getFirstChild().getNextSibling().getLastChild().getAttributes().item(2).getTextContent());
+		Element e2 = activiteDoc.createElement("activite");
+		activiteDoc.getFirstChild().getNextSibling().appendChild(e2);
+		e2.setAttribute("id", Integer.toString(lastID + 1));
+		e2.setAttribute("debut", participation.getActivite().getDebut());
+		e2.setAttribute("fin", participation.getActivite().getFin());
+		e2.setAttribute("type", participation.getActivite().getType());
+		ajouterFeuille(e2, "ville", participation.getActivite().getVille());
+		ajouterFeuille(e2, "nom", participation.getActivite().getNom());
+		ajouterFeuille(e2, "note", Integer.toString(participation.getNote()));
+		ajouterFeuille(e2, "commentaire", participation.getCommentaire());
 	}
 	
 	public void desinscrire() {

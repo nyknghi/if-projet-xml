@@ -7,11 +7,11 @@ import org.w3c.dom.NodeList;
 
 import pojo.Participation;
 
-public class Traiter {
+public class ParserDOM {
 	Document utilisateurDoc, serviceDoc, activiteDoc;
 	private Participation participation;
 	
-	public Traiter(Participation p){
+	public ParserDOM(Participation p){
 		participation = p;
 	}
 	
@@ -94,7 +94,8 @@ public class Traiter {
 					if (participations.item(i).getChildNodes().getLength() == 2) {
 						Element e2 = serviceDoc.createElement("note");
 						participations.item(i).appendChild(e2);
-						e2.setTextContent(Integer.toString(participation.getNote()));					}
+						e2.setTextContent(Integer.toString(participation.getNote()));					
+					}
 					else {
 						if (participations.item(i).getChildNodes().item(2).getNodeName() == "note") {
 							participations.item(i).getChildNodes().item(2).setTextContent(Integer.toString(participation.getNote()));

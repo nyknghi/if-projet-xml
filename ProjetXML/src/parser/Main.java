@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
-import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -28,7 +26,7 @@ import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-public class MainSAX {
+public class Main {
 	public static void main(String[] args){
 		SAXParserFactory parserFactory = SAXParserFactory.newInstance();
 		try {
@@ -45,14 +43,14 @@ public class MainSAX {
 			Document doc, doc2;
 			Schema schema;
 			Validator validator;
-			Traiter traiter;
+			ParserDOM traiter;
 			SchemaFactory factory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
 			Source schemaFile;				
 			switch (((ParserFormulaire)handler).getTypeAction()) {
 			case "inscrire" :
 				filepath="src/dataSources/utilisateur.xml";
 				doc = db.parse(filepath);
-				traiter = new Traiter(((ParserFormulaire)handler).getParticipation());
+				traiter = new ParserDOM(((ParserFormulaire)handler).getParticipation());
 				traiter.setUtilisateurDoc(doc);
 				traiter.inscrire();			
 				schemaFile = new StreamSource(new File("src/grammaire/utilisateur.xsd"));
@@ -63,7 +61,7 @@ public class MainSAX {
 			case "desinscrire" :
 				filepath="src/dataSources/utilisateur.xml";
 				doc = db.parse(filepath);
-				traiter = new Traiter(((ParserFormulaire)handler).getParticipation());
+				traiter = new ParserDOM(((ParserFormulaire)handler).getParticipation());
 				traiter.setUtilisateurDoc(doc);
 				traiter.desinscrire();
 				schemaFile = new StreamSource(new File("src/grammaire/utilisateur.xsd"));
@@ -76,7 +74,7 @@ public class MainSAX {
 				filepath2="src/dataSources/activite.xml";
 				doc = db.parse(filepath);
 				doc2 = db.parse(filepath2);
-				traiter = new Traiter(((ParserFormulaire)handler).getParticipation());
+				traiter = new ParserDOM(((ParserFormulaire)handler).getParticipation());
 				traiter.setServiceDoc(doc);
 				traiter.setActiviteDoc(doc2);
 				traiter.commenter();
@@ -97,7 +95,7 @@ public class MainSAX {
 				filepath2="src/dataSources/activite.xml";
 				doc = db.parse(filepath);
 				doc2 = db.parse(filepath2);
-				traiter = new Traiter(((ParserFormulaire)handler).getParticipation());
+				traiter = new ParserDOM(((ParserFormulaire)handler).getParticipation());
 				traiter.setServiceDoc(doc);
 				traiter.setActiviteDoc(doc2);
 				traiter.noter();
@@ -126,7 +124,7 @@ public class MainSAX {
 			default:
 				filepath="src/dataSources/utilisateur.xml";
 				doc = db.parse(filepath);
-				traiter = new Traiter(((ParserFormulaire)handler).getParticipation());
+				traiter = new ParserDOM(((ParserFormulaire)handler).getParticipation());
 				traiter.setUtilisateurDoc(doc);
 				traiter.inscrire();		
 				schemaFile = new StreamSource(new File("src/grammaire/utilisateur.xsd"));

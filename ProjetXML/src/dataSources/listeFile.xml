@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ListFile>
+<listFile>
 	<service>service.xml</service>
 	<act>activite.xml</act>
 	<user>utilisateur.xml</user>	
 	<form>formulaire.xml</form>
-</ListFile>
+</listFile>

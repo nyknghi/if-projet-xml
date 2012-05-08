@@ -46,7 +46,6 @@ public class Main {
 			ParserDOM traiter;
 			SchemaFactory factory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
 			Source schemaFile;			
-			boolean isPartager = false;
 			switch (((ParserFormulaire)handler).getTypeAction()) {
 			case "inscrire" :
 				filepath="src/dataSources/utilisateur.xml";
@@ -57,7 +56,12 @@ public class Main {
 				schemaFile = new StreamSource(new File("src/grammaire/utilisateur.xsd"));
 	            schema = factory.newSchema(schemaFile);
 	            validator = schema.newValidator();
-	            validator.validate(new DOMSource(doc));	
+	            validator.validate(new DOMSource(doc));
+				TransformerFactory transformerFactory = TransformerFactory.newInstance();
+				Transformer transformer = transformerFactory.newTransformer();	
+				DOMSource source = new DOMSource(doc);
+				StreamResult result = new StreamResult(new File(filepath));
+				transformer.transform(source, result);	            
 				break;
 			case "partager" :
 				filepath="src/dataSources/activite.xml";
@@ -65,7 +69,12 @@ public class Main {
 				traiter = new ParserDOM(((ParserFormulaire)handler).getParticipation());
 				traiter.setActiviteDoc(doc);
 				traiter.partager();
-				isPartager = true;
+				transformerFactory = TransformerFactory.newInstance();
+				transformer = transformerFactory.newTransformer();	
+				transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM,"../grammaire/activite.dtd");				
+				source = new DOMSource(doc);
+				result = new StreamResult(new File(filepath));
+				transformer.transform(source, result);				
 				break;				
 			case "desinscrire" :
 				filepath="src/dataSources/utilisateur.xml";
@@ -76,7 +85,12 @@ public class Main {
 				schemaFile = new StreamSource(new File("src/grammaire/utilisateur.xsd"));
 	            schema = factory.newSchema(schemaFile);
 	            validator = schema.newValidator();
-	            validator.validate(new DOMSource(doc));					
+	            validator.validate(new DOMSource(doc));		
+				transformerFactory = TransformerFactory.newInstance();
+				transformer = transformerFactory.newTransformer();	
+				source = new DOMSource(doc);
+				result = new StreamResult(new File(filepath));
+				transformer.transform(source, result);	            
 				break;			
 			case "commenter" :
 				filepath="src/dataSources/service.xml";
@@ -97,7 +111,12 @@ public class Main {
 				transformer2.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM,"../grammaire/activite.dtd");
 				DOMSource source2 = new DOMSource(doc2);
 				StreamResult result2 = new StreamResult(new File(filepath2));
-				transformer2.transform(source2, result2);					
+				transformer2.transform(source2, result2);	
+				transformerFactory = TransformerFactory.newInstance();
+				transformer = transformerFactory.newTransformer();	
+				source = new DOMSource(doc);
+				result = new StreamResult(new File(filepath));
+				transformer.transform(source, result);				
 				break;		
 			case "noter" :
 				filepath="src/dataSources/service.xml";
@@ -118,7 +137,12 @@ public class Main {
 				transformer2.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM,"../grammaire/activite.dtd");
 				source2 = new DOMSource(doc2);
 				result2 = new StreamResult(new File(filepath2));
-				transformer2.transform(source2, result2);				
+				transformer2.transform(source2, result2);
+				transformerFactory = TransformerFactory.newInstance();
+				transformer = transformerFactory.newTransformer();	
+				source = new DOMSource(doc);
+				result = new StreamResult(new File(filepath));
+				transformer.transform(source, result);
 				break;		
 			case "rechercher" :
 				File xmlFile = new File("src/dataSources/listeFile.xml");
@@ -129,7 +153,8 @@ public class Main {
 					ParserXSLT.parser(xmlFile, xsltFile, sortie);
 				} catch (FileNotFoundException e) {
 					e.printStackTrace();
-				}	
+				}
+				break;
 			default:
 				filepath="src/dataSources/utilisateur.xml";
 				doc = db.parse(filepath);
@@ -139,18 +164,13 @@ public class Main {
 				schemaFile = new StreamSource(new File("src/grammaire/utilisateur.xsd"));
 	            schema = factory.newSchema(schemaFile);
 	            validator = schema.newValidator();
-	            validator.validate(new DOMSource(doc));						
+	            validator.validate(new DOMSource(doc));	
+				transformerFactory = TransformerFactory.newInstance();
+				transformer = transformerFactory.newTransformer();	
+				source = new DOMSource(doc);
+				result = new StreamResult(new File(filepath));
+				transformer.transform(source, result);
 			}
-				
-			// write the content into xml file
-			TransformerFactory transformerFactory = TransformerFactory.newInstance();
-			Transformer transformer = transformerFactory.newTransformer();	
-			if (isPartager) {
-				transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM,"../grammaire/activite.dtd");				
-			}
-			DOMSource source = new DOMSource(doc);
-			StreamResult result = new StreamResult(new File(filepath));
-			transformer.transform(source, result);
 
 			System.out.println("Done");				
 			

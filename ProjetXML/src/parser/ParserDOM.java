@@ -25,6 +25,7 @@ public class ParserDOM {
 		ajouterFeuille(e2,"nom", this.participation.getUtilisateur().getNom());
 		e2.appendChild(ajouterCoordonnee(e2));
 		ajouterFeuille(e2,"hobby", this.participation.getUtilisateur().getHobby());	
+		System.out.println("Utilisateur ID "+Integer.toString(lastID + 1)+" est enregistré");
 	}
 	
 	public void partager() {
@@ -38,8 +39,14 @@ public class ParserDOM {
 		e2.setAttribute("type", participation.getActivite().getType());
 		ajouterFeuille(e2, "ville", participation.getActivite().getVille());
 		ajouterFeuille(e2, "nom", participation.getActivite().getNom());
-		ajouterFeuille(e2, "note", Integer.toString(participation.getNote()));
+		if (participation.getNote() == 0) {
+			ajouterFeuille(e2, "note", "");
+		}
+		else {
+			ajouterFeuille(e2, "note", Integer.toString(participation.getNote()));			
+		}
 		ajouterFeuille(e2, "commentaire", participation.getCommentaire());
+		System.out.println("Activité ID "+Integer.toString(lastID + 1)+" est créé");
 	}
 	
 	public void desinscrire() {
@@ -50,6 +57,7 @@ public class ParserDOM {
 				lutilisateurs.removeChild(utilisateurs.item(i));
 			}
 		}
+		System.out.println("Utilisateur ID "+Integer.toString(participation.getUtilisateur().getId())+" est supprimé");
 	}
 	
 	public void commenter() {
@@ -58,7 +66,7 @@ public class ParserDOM {
 		int i = 0;
 		boolean isExistId = false;
 		while (i < participations.getLength()) {
-//			System.out.println(participations.item(i).getFirstChild().getAttributes().item(0).getTextContent());
+//			System.out.println(participations.item(i).getChildNodes().item(1).getAttributes().item(0).getTextContent());
 			if (participations.item(i).getChildNodes().item(0).getAttributes().item(0).getTextContent().equals(Integer.toString(participation.getUtilisateur().getId()))) {
 				if (participations.item(i).getChildNodes().item(1).getAttributes().item(0).getTextContent().equals(Integer.toString(participation.getActivite().getId()))) {
 					Element e2 = serviceDoc.createElement("commentaire");
@@ -95,7 +103,9 @@ public class ParserDOM {
 				break;				
 			}
 			i++;
-		}	
+		}
+		System.out.println("Utilisateur ID "+participation.getUtilisateur().getId()+" a commenté à l'activité ID "+participation.getActivite().getId()+" :");
+		System.out.println(participation.getCommentaire());
 	}
 	
 	public void noter() {
@@ -165,6 +175,7 @@ public class ParserDOM {
 			}
 			i++;			
 		}
+		System.out.println("Utilisateur ID "+participation.getUtilisateur().getId()+" a noté à l'activité ID "+participation.getActivite().getId()+" : "+participation.getNote());
 	}	
 
 	public Element ajouterUtilisateur(Node node){

@@ -28,7 +28,7 @@ public class ParserFormulaire extends DefaultHandler{
 		}
 		if (qName.equals("activite")){
 			activite = new Activite();
-			if (att.getValue(2) != "") {
+			if (att.getValue(0) != "") {
 				activite.setId(Integer.parseInt(att.getValue(0)));
 			}			
 			activite.setDebut(att.getValue(1));
@@ -41,7 +41,9 @@ public class ParserFormulaire extends DefaultHandler{
 		}
 		if (qName.equals("utilisateur")){
 			utilisateur = new Utilisateur();
-			utilisateur.setAge(Integer.parseInt(att.getValue(0)));
+			if (att.getValue(0) != "") {
+				utilisateur.setAge(Integer.parseInt(att.getValue(0)));				
+			}
 			utilisateur.setGenre(att.getValue(1));
 			if (att.getValue(2) != "") {
 					utilisateur.setId(Integer.parseInt(att.getValue(2)));

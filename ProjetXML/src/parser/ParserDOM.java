@@ -66,7 +66,6 @@ public class ParserDOM {
 		int i = 0;
 		boolean isExistId = false;
 		while (i < participations.getLength()) {
-			//System.out.println(participations.item(i).getChildNodes().item(1).getAttributes().item(0).getTextContent());
 			if (participations.item(i).getChildNodes().item(0).getAttributes().item(0).getTextContent().equals(Integer.toString(participation.getUtilisateur().getId()))) {
 				if (participations.item(i).getChildNodes().item(1).getAttributes().item(0).getTextContent().equals(Integer.toString(participation.getActivite().getId()))) {
 					Element e2 = serviceDoc.createElement("commentaire");
@@ -92,14 +91,11 @@ public class ParserDOM {
 		
 		NodeList activites = activiteDoc.getFirstChild().getNextSibling().getChildNodes();
 		i = 0;
-//		isExistId = false;
 		while (i < activites.getLength()) {
-//			System.out.println(activites.item(i));
 			if (activites.item(i).getAttributes().item(2).getTextContent().equals(Integer.toString(participation.getActivite().getId()))) {
 				Element e2 = activiteDoc.createElement("commentaire");
 				activites.item(i).appendChild(e2);
 				e2.setTextContent(participation.getCommentaire());
-//				isExistId = true;
 				break;				
 			}
 			i++;
@@ -114,7 +110,6 @@ public class ParserDOM {
 		int i = 0;
 		boolean isExistId = false;
 		while (i < participations.getLength()) {
-//			System.out.println(participations.item(i).getChildNodes().item(2));
 			if (participations.item(i).getChildNodes().item(0).getAttributes().item(0).getTextContent().equals(Integer.toString(participation.getUtilisateur().getId()))) {
 				if (participations.item(i).getChildNodes().item(1).getAttributes().item(0).getTextContent().equals(Integer.toString(participation.getActivite().getId()))) {
 					if (participations.item(i).getChildNodes().getLength() == 2) {
@@ -153,7 +148,6 @@ public class ParserDOM {
 		
 		NodeList activites = activiteDoc.getFirstChild().getNextSibling().getChildNodes();
 		i = 0;
-//		isExistId = false;
 		while (i < activites.getLength()) {
 			if (activites.item(i).getAttributes().item(2).getTextContent().equals(Integer.toString(participation.getActivite().getId()))) {
 				if (activites.item(i).getChildNodes().getLength() == 2) {
@@ -170,7 +164,6 @@ public class ParserDOM {
 						activites.item(i).getChildNodes().item(2).setTextContent(Integer.toString(participation.getNote()));
 					}
 				}
-//				isExistId = true;
 				break;				
 			}
 			i++;			
